@@ -53,6 +53,7 @@ const config: Config = {
         "primary-blue": "#2E3559",
         "primary-white": "#F8FAFC",
         "primary-orange": "#F26D6D",
+        "primary-violet": "#976FBF",
       },
       borderRadius: {
         lg: "var(--radius)",
