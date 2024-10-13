@@ -78,4 +78,12 @@ body {
 }
 
 @layer components {
+  .section {
+    @apply pt-10;
+  }
+  .incorporated-bg {
+    background-image: url("/sectionBg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }

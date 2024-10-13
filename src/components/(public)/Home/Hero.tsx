@@ -7,12 +7,11 @@ const Hero = () => {
       <TopBanner
         image={banner1}
         title="Specialized Sitters, Stronger Links: Connecting Care with Compassion"
-        titleClass="text-4xl max-w-2xl text-primary-white "
-        contentClass="absolute top-1/2"
-        imageClass="max-h-[825px] "
-        btn="How to Connect with 
-Specialized Links"
-        btnClass="!max-w-sm bg-primary-orange font-medium"
+        titleClass="md:text-4xl text-xl max-w-2xl text-primary-white font-semibold "
+        contentClass="absolute lg:top-1/2 top-1/3"
+        imageClass="max-h-[100vh] "
+        btn="How to Connect with Specialized Links"
+        btnClass=" bg-primary-orange font-medium py-8  text-lg "
       />
       <Navbar className="absolute mx-auto lg:top-10 top-2 w-full "></Navbar>
     </div>

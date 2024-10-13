@@ -26,12 +26,15 @@ const TopBanner = ({
       <Image
         src={image}
         alt="banner-image"
-        className={cn("w-full brightness-75", imageClass)}
+        className={cn("w-full brightness-75 z-0 object-fill", imageClass)}
       ></Image>
-      <Container className={cn(contentClass)}>
+      <Container className={cn("z-20", contentClass)}>
         {title && <h3 className={cn(titleClass)}>{title}</h3>}
         {btn && (
-          <Button className={cn("mt-6 max-w-sm", btnClass)}>{btn}</Button>
+          <Button className={cn("md:mt-6 mt-2  ", btnClass)}>
+            {btn?.split(" ")?.slice(0, 4)?.join(" ")} <br />
+            {btn?.split(" ")?.slice(4, btn?.length)?.join(" ")}
+          </Button>
         )}
       </Container>
     </div>
