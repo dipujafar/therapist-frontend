@@ -79,7 +79,7 @@ const Navbar = ({ className }: { className?: string }) => {
                 alt="logo"
                 width={1200}
                 height={1200}
-                className="h-16 lg:h-auto w-auto "
+                className="h-16 lg:h-auto w-auto brightness-110 "
               />
             </Link>
           </div>

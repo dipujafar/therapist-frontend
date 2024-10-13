@@ -1,5 +1,4 @@
 import banner1 from "@/assets/Images/banner1.png";
-import Navbar from "@/components/shared/Navbar";
 import TopBanner from "@/components/shared/TopBanner";
 const Hero = () => {
   return (
@@ -13,7 +12,6 @@ const Hero = () => {
         btn="How to Connect with Specialized Links"
         btnClass=" bg-primary-orange font-medium py-8  text-lg "
       />
-      <Navbar className="absolute mx-auto lg:top-10 top-2 w-full "></Navbar>
     </div>
   );
 };

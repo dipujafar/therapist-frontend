@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import Image, { StaticImageData } from "next/image";
 import { Button } from "../ui/button";
 import Container from "./Container";
+import Navbar from "./Navbar";
 
 type TProps = {
   image: StaticImageData;
@@ -37,6 +38,7 @@ const TopBanner = ({
           </Button>
         )}
       </Container>
+      <Navbar className="absolute mx-auto lg:top-10 top-2 w-full "></Navbar>
     </div>
   );
 };

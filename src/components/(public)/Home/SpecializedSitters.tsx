@@ -1,6 +1,6 @@
 import InfoSection from "@/components/shared/InfoSection";
 import sectionImage from "@/assets/Images/section-image2.png";
-import circle from "@/assets//Images/circle.png";
+import circle from "@/assets/Images/circle.png";
 
 const SpecializedSitters = () => {
   return (
@@ -8,7 +8,7 @@ const SpecializedSitters = () => {
       <InfoSection
         image={sectionImage}
         title="We connect families to specialized sitters"
-        titleClass="text-center"
+        titleClass="text-center md:text-5xl"
         contentClass="flex flex-col justify-center max-w-2xl"
         className="lg:flex-row-reverse"
         btn="How It Works"

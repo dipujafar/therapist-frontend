@@ -11,6 +11,8 @@ type TProps = {
   descriptionClass?: string;
   title?: string;
   titleClass?: string;
+  subTitle?: string;
+  subTitleClass?: string;
   btn?: string;
   btnClass?: string;
   className?: string;
@@ -26,6 +28,8 @@ const InfoSection = ({
   imageClass,
   title,
   titleClass,
+  subTitle,
+  subTitleClass,
   children,
   descriptionClass,
   btn,
@@ -41,15 +45,16 @@ const InfoSection = ({
     <Container>
       <div
         className={cn(
-          "flex flex-col lg:flex-row justify-between items-center  gap-y-16",
+          "flex flex-col lg:flex-row justify-between items-center gap-x-5 gap-y-16",
           className
         )}
       >
+        {/* image and watermark */}
         <div className="relative w-fit">
           <Image
             src={image}
             alt="banner-image"
-            className={cn("z-10", imageClass)}
+            className={cn("z-10 w-full", imageClass)}
           ></Image>
           {waterMarkImage && (
             <Image
@@ -66,11 +71,21 @@ const InfoSection = ({
             ></Image>
           )}
         </div>
+        {/* ______________________ */}
+
         <div className={cn(contentClass)}>
+          {subTitle && (
+            <p
+              className={cn("text-xl text-primary-violet mb-2", subTitleClass)}
+            >
+              {subTitle}
+            </p>
+          )}
+
           {title && (
             <h1
               className={cn(
-                "md:text-5xl text-3xl font-semibold text-deep-blue",
+                " text-3xl font-semibold text-deep-blue",
                 titleClass
               )}
             >

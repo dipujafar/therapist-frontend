@@ -8,7 +8,7 @@ const SetUsApart = () => {
       <InfoSection
         image={sectionImage}
         title="What sets us apart"
-        titleClass="text-center "
+        titleClass="text-center md:text-5xl "
         contentClass="flex flex-col justify-center max-w-2xl"
         waterMarkImage={circle}
         waterMarkClass="md:-bottom-12 md:-left-12 -bottom-4 -left-4"
