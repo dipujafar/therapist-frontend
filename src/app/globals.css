@@ -79,7 +79,7 @@ body {
 
 @layer components {
   .section {
-    @apply pt-32;
+    @apply md:pt-32 pt-16;
   }
   .incorporated-bg {
     background-image: url("/sectionBg.png");
