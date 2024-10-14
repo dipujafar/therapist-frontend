@@ -86,4 +86,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
   }
+  .section-title {
+    @apply text-4xl font-semibold;
+  }
 }
