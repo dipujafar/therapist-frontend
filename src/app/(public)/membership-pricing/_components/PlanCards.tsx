@@ -31,7 +31,7 @@ const PlanCards = () => {
       {/* card 2 */}
       <InfoDynamicCard
         className="bg-[#038C7F] text-primary-white space-y-6 px-5   border-b-[6px] border-b-[#B1DBD7] border-r-[6px] border-r-[#B1DBD7]"
-        title="Connect Starter"
+        title="Connection Starter"
         subTitle="$50/Month + Linkers’ hourly rate Book 5 sits each month"
       >
         <p>

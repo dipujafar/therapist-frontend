@@ -89,4 +89,7 @@ body {
   .section-title {
     @apply text-4xl font-semibold;
   }
+  .section-subtitle {
+    @apply text-3xl font-semibold;
+  }
 }

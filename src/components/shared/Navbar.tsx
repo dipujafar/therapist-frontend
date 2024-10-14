@@ -128,7 +128,7 @@ const Navbar = ({ className }: { className?: string }) => {
               </Button>
             </Link>
 
-            <Link href={"/link-sitters"}>
+            <Link href={"/make-connection"}>
               <Button className="bg-primary-orange text-primary-white  py-8 xl:px-10 rounded-full font-medium hover:bg-gray-700">
                 Make a Connection <br />
                 Families
@@ -205,7 +205,7 @@ const Navbar = ({ className }: { className?: string }) => {
                       </Button>
                     </Link>
 
-                    <Link href={"/link-sitters"}>
+                    <Link href={"/make-connection"}>
                       <Button className="bg-primary-orange text-primary-white  py-8 px-10 rounded-full font-medium hover:bg-gray-700">
                         Make a Connection <br />
                         Families

@@ -40,7 +40,7 @@ const LinkRates = () => {
         sitting services.
       </p>
 
-      <div className="pt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="pt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         {priceData?.map((data, idx) => (
           <div
             key={idx}
