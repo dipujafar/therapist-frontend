@@ -5,7 +5,7 @@ export const memberShipPlans = [
     price: 25,
   },
   {
-    label: "Connect Starter - 5 Sits Per Month +  Linkers’ hourly rate",
+    label: "Connection Starter - 5 Sits Per Month +  Linkers’ hourly rate",
     value: "connect-starter",
     price: 50,
   },

@@ -5,13 +5,21 @@ import dummyProfile from "@/assets/images/make-connect/dummyProfile.png";
 import Image from "next/image";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Ban, CircleX, ImageIcon, Info, X } from "lucide-react";
+import { Ban, CalendarIcon, CircleX, ImageIcon, Info, X } from "lucide-react";
 
 import { useState } from "react";
 import { DateTimePicker } from "@/components/ui/datepicker";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { memberShipPlans } from "@/components/utils/memberShipPlan";
+import { memberShipPlans } from "@/lib/memberShipPlan";
 import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
+import { format } from "date-fns";
+import { Calendar } from "@/components/ui/calendar";
 
 const MakeConnectionForm = () => {
   const [fileName, setFileName] = useState<string | null>(null);
@@ -326,7 +334,7 @@ const MakeConnectionForm = () => {
           {/* Child Information Header */}
           <div className="flex justify-between flex-wrap gap-2">
             <h1 className="text-2xl font-semibold text-primary-blue">
-              Child Information
+              Child's Information
             </h1>
             <Button type="button" className="bg-primary-orange ">
               New Child
@@ -353,13 +361,33 @@ const MakeConnectionForm = () => {
               <Label className="font-semibold text-lg text-primary-black/80">
                 Child’s Birthday
               </Label>
-              <div className=" space-y-2">
-                <DateTimePicker
-                  // className="w-full py-5 bg-primary-light-gray "
-                  // granularity="day"
-                  value={childBirthday}
-                  onChange={setChildBirthday}
-                />
+              <div className=" space-y-2 w-full">
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant={"outline"}
+                      className={cn(
+                        " justify-start text-left font-normal w-full bg-primary-light-gray",
+                        !childBirthday && "text-muted-foreground"
+                      )}
+                    >
+                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      {childBirthday ? (
+                        format(childBirthday, "PPP")
+                      ) : (
+                        <span>Pick a date</span>
+                      )}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0">
+                    <Calendar
+                      mode="single"
+                      selected={childBirthday}
+                      onSelect={setChildBirthday}
+                      initialFocus
+                    />
+                  </PopoverContent>
+                </Popover>
               </div>
             </div>
           </div>
