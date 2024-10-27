@@ -4,6 +4,10 @@ import sectionImage from "@/assets/Images/our-links-images/link-page-image.png";
 const LinksDetailsInfo = () => {
   return (
     <div className="section">
+      <h2 className="text-center text-2xl md:text-5xl font-medium text-primary-blue mb-14">
+        You are the missing link!
+      </h2>
+
       <InfoSection
         image={sectionImage}
         contentClass="flex flex-col justify-center max-w-2xl"

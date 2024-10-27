@@ -80,15 +80,6 @@ const Footer = () => {
                 <p>letstalk@gmail.com</p>
               </div>
             </div>
-
-            <div className="text-primary-white space-y-5 flex justify-center items-center gap-2">
-              <Phone className="inline" />
-              Phone :
-              <div>
-                <p>( +1 ) (888) 750-6866</p>
-                <p>( +1 ) (888) 785-3986</p>
-              </div>
-            </div>
           </div>
         </div>
       </Container>

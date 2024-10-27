@@ -12,7 +12,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    default: "Therapist",
+    default: "Therapist | Home",
     template: "%s | Therapist",
   },
   description: "This is official website of Therapist",
