@@ -4,6 +4,8 @@ import LinksDetailsInfo from "./_components/LinksDetailsInfo";
 import TopLinks from "./_components/TopLinks";
 import { Metadata } from "next";
 import Reviews from "./_components/Reviews";
+import Image from "next/image";
+import waterMarkImage from "@/assets/Images/waterMarkBg.png";
 
 export const metadata: Metadata = {
   title: "Our Links",
@@ -12,7 +14,7 @@ export const metadata: Metadata = {
 
 const OurLinksPage = () => {
   return (
-    <div>
+    <div className="relative">
       <TopBanner
         image={bannerImage}
         title="Our Links"
@@ -23,6 +25,9 @@ const OurLinksPage = () => {
       <LinksDetailsInfo></LinksDetailsInfo>
       <TopLinks></TopLinks>
       <Reviews></Reviews>
+      <div className="absolute -bottom-64 right-0 !z-[-999]">
+        <Image src={waterMarkImage} alt="watermark-Image"></Image>
+      </div>
     </div>
   );
 };

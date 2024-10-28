@@ -30,7 +30,7 @@ const TopLinks = () => {
           }}
           plugins={[
             Autoplay({
-              delay: 3000,
+              delay: 2500,
               stopOnInteraction: false,
               stopOnMouseEnter: true,
             }),

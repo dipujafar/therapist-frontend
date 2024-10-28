@@ -17,7 +17,7 @@ interface RatingProps extends VariantProps<typeof ratingVariants> {
 const Rating = React.forwardRef<
   React.ElementRef<"div">,
   React.ComponentPropsWithoutRef<"div"> & RatingProps
->(({ rating, className, ...props }, ref) => {
+>(({ rating, className, color, ...props }, ref) => {
   // Create an array of 5 elements, with filled stars for each full rating and empty for the rest
   const stars = Array.from({ length: 5 }, (_, i) => i < rating);
 
@@ -26,7 +26,9 @@ const Rating = React.forwardRef<
       {stars.map((isFilled, index) => (
         <Star
           key={index}
-          className={isFilled ? "text-[#FF8A00]" : "text-gray-400"}
+          className={
+            isFilled ? ` ${color || "text-[#FF8A00]"}` : "text-gray-400"
+          }
           fill={isFilled ? "currentColor" : "none"} // Filled star or empty
           stroke="currentColor" // Ensure stroke is applied
         />
