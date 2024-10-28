@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import Footer from "@/components/shared/Footer";
+import NextTopLoader from "nextjs-toploader";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -29,7 +30,21 @@ export default function RootLayout({
         <link rel="icon" href="./logo.png" />
       </head>
       <body className={`${poppins.className} antialiased`}>
-        {children}
+        <NextTopLoader
+          color="#F26D6D"
+          initialPosition={0.08}
+          crawlSpeed={200}
+          height={3}
+          crawl={true}
+          showSpinner={true}
+          easing="ease"
+          speed={200}
+          shadow="0 0 10px #232323,0 0 5px #EA5326"
+          zIndex={1600}
+          showAtBottom={false}
+        />
+
+        <div className="min-h-[calc(100vh-250px)] pb-24">{children}</div>
         <footer>
           <Footer></Footer>
         </footer>

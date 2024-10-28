@@ -11,6 +11,7 @@ const Hero = () => {
         imageClass="max-h-[100vh] "
         btn="How to Connect with Specialized Links"
         btnClass=" bg-primary-orange font-medium py-8  text-lg "
+        btnLink="/specialized-links"
       />
     </div>
   );

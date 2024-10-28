@@ -2,8 +2,8 @@
 import Image from "next/image";
 import logo from "@/assets/images/logo.png";
 import { Button } from "../ui/button";
-import { ShoppingCart, TableOfContents, User } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { TableOfContents } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import {
   Sheet,
@@ -17,11 +17,6 @@ import {
   MenubarContent,
   MenubarItem,
   MenubarMenu,
-  MenubarSeparator,
-  MenubarShortcut,
-  MenubarSub,
-  MenubarSubContent,
-  MenubarSubTrigger,
   MenubarTrigger,
 } from "@/components/ui/menubar";
 
@@ -59,13 +54,9 @@ const navLinks = [
 ];
 
 const Navbar = ({ className }: { className?: string }) => {
-  const router = useRouter(); // Use useRouter hook
-
-  // Function to handle category selection
-  const handleCategoryChange = () => {
-    // Programmatically navigate to the category route
-    router.push(`/products`);
-  };
+  const pathname = usePathname();
+  const currentPathName = pathname?.split("/")[1];
+  console.log(currentPathName);
 
   return (
     <div className={cn(className)}>
@@ -92,13 +83,20 @@ const Navbar = ({ className }: { className?: string }) => {
                 {/*------------------------ about drop down navLinks ---------------------------------- */}
                 <Menubar className="w-fit bg-transparent border-none shadow-none text-primary-white">
                   <MenubarMenu>
-                    <MenubarTrigger className="text-lg font-medium">
+                    <MenubarTrigger className="text-lg font-medium hover:bg-primary-orange duration-300 cursor-pointer">
                       About
                     </MenubarTrigger>
                     <MenubarContent>
                       {about?.map((item, idx) => (
                         <div key={idx}>
-                          <MenubarItem className="text-lg font-medium max-w-[180px]">
+                          <MenubarItem
+                            className={cn(
+                              "text-lg font-medium max-w-[180px]",
+                              currentPathName === item?.value
+                                ? "bg-primary-orange text-primary-white"
+                                : ""
+                            )}
+                          >
                             <Link href={`/${item.value}`}>{item.label}</Link>
                           </MenubarItem>
                           <hr />
@@ -111,7 +109,15 @@ const Navbar = ({ className }: { className?: string }) => {
 
                 <ul className=" text-primary-white items-center gap-8 text-light-black lg:flex">
                   {navLinks?.map((item, idx) => (
-                    <li key={idx} className="text-lg font-medium">
+                    <li
+                      key={idx}
+                      className={cn(
+                        "text-lg font-medium hover:text-primary-orange duration-300",
+                        currentPathName === item.value
+                          ? "text-primary-orange"
+                          : ""
+                      )}
+                    >
                       <Link href={`/${item.value}`}>{item.label}</Link>
                     </li>
                   ))}
@@ -167,13 +173,20 @@ const Navbar = ({ className }: { className?: string }) => {
                         {/*------------------------ about drop down navLinks ---------------------------------- */}
                         <Menubar className="w-fit bg-transparent border-none shadow-none ">
                           <MenubarMenu>
-                            <MenubarTrigger className="text-lg font-medium">
+                            <MenubarTrigger className="text-lg font-medium hover:bg-primary-orange duration-300 cursor-pointer">
                               About
                             </MenubarTrigger>
                             <MenubarContent>
                               {about?.map((item, idx) => (
                                 <div key={idx}>
-                                  <MenubarItem className="text-lg font-medium max-w-[180px]">
+                                  <MenubarItem
+                                    className={cn(
+                                      "text-lg font-medium max-w-[180px]",
+                                      currentPathName === item?.value
+                                        ? "bg-primary-orange text-primary-white"
+                                        : ""
+                                    )}
+                                  >
                                     <Link href={`/${item.value}`}>
                                       {item.label}
                                     </Link>
@@ -188,7 +201,15 @@ const Navbar = ({ className }: { className?: string }) => {
 
                         <ul className="flex flex-col gap-y-4 pl-4 ">
                           {navLinks?.map((item, idx) => (
-                            <li key={idx} className="text-lg font-medium">
+                            <li
+                              key={idx}
+                              className={cn(
+                                "text-lg font-medium hover:text-primary-orange duration-300",
+                                currentPathName === item.value
+                                  ? "text-primary-orange"
+                                  : ""
+                              )}
+                            >
                               <Link href={`/${item.value}`}>{item.label}</Link>
                             </li>
                           ))}

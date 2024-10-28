@@ -3,6 +3,8 @@ import Image, { StaticImageData } from "next/image";
 import { Button } from "../ui/button";
 import Container from "./Container";
 import { ReactNode } from "react";
+import MovementElement from "@/animation/MovementElement";
+import AnimatedText from "@/animation/AnimatedText";
 
 type TProps = {
   image: StaticImageData;
@@ -21,6 +23,8 @@ type TProps = {
   waterMarkClass?: string;
   waterMarkImage2?: StaticImageData;
   waterMarkClass2?: string;
+  x?: string;
+  y?: string;
 };
 
 const InfoSection = ({
@@ -40,6 +44,8 @@ const InfoSection = ({
   waterMarkClass,
   waterMarkImage2,
   waterMarkClass2,
+  x,
+  y,
 }: TProps) => {
   return (
     <Container>
@@ -51,11 +57,14 @@ const InfoSection = ({
       >
         {/* image and watermark */}
         <div className="relative w-fit">
-          <Image
-            src={image}
-            alt="banner-image"
-            className={cn("z-10 w-full", imageClass)}
-          ></Image>
+          <MovementElement duration={1.3}>
+            <Image
+              src={image}
+              alt="banner-image"
+              className={cn("z-10 w-full", imageClass)}
+            ></Image>
+          </MovementElement>
+
           {waterMarkImage && (
             <Image
               src={waterMarkImage}
@@ -89,7 +98,9 @@ const InfoSection = ({
                 titleClass
               )}
             >
-              {title}
+              <AnimatedText duration={1} delay={0.01}>
+                {title}
+              </AnimatedText>
             </h1>
           )}
           {children && (
