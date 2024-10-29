@@ -9,11 +9,11 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Rating } from "@/components/ui/rating";
-import { topLinksData } from "@/utlis/topLinks";
+import { topLinksData } from "@/utils/topLinks";
 import { Dot } from "lucide-react";
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
-import { reviewData } from "@/utlis/reviews";
+import { reviewData } from "@/utils/reviews";
 
 const Reviews = () => {
   return (

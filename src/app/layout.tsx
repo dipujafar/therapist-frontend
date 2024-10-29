@@ -3,6 +3,7 @@ import "./globals.css";
 import { Poppins } from "next/font/google";
 import Footer from "@/components/shared/Footer";
 import NextTopLoader from "nextjs-toploader";
+import "react-pagination-bar/dist/index.css";
 
 const poppins = Poppins({
   subsets: ["latin"],

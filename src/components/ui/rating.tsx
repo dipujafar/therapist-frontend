@@ -12,12 +12,13 @@ const ratingVariants = cva(
 interface RatingProps extends VariantProps<typeof ratingVariants> {
   rating: number; // The rating value (out of 5)
   className?: string; // Optional className for additional styling
+  size?: number; // Optional size for the rating stars
 }
 
 const Rating = React.forwardRef<
   React.ElementRef<"div">,
   React.ComponentPropsWithoutRef<"div"> & RatingProps
->(({ rating, className, color, ...props }, ref) => {
+>(({ rating, className, color, size, ...props }, ref) => {
   // Create an array of 5 elements, with filled stars for each full rating and empty for the rest
   const stars = Array.from({ length: 5 }, (_, i) => i < rating);
 
@@ -25,11 +26,12 @@ const Rating = React.forwardRef<
     <div ref={ref} className={cn(ratingVariants(), className)} {...props}>
       {stars.map((isFilled, index) => (
         <Star
+          size={size || 24}
           key={index}
           className={
-            isFilled ? ` ${color || "text-[#FF8A00]"}` : "text-gray-400"
+            isFilled ? ` ${color || "text-[#FF8A00]"}` : "text-[#E0E0E0]"
           }
-          fill={isFilled ? "currentColor" : "none"} // Filled star or empty
+          fill={isFilled ? "currentColor" : "#E0E0E0"} // Filled star or empty
           stroke="currentColor" // Ensure stroke is applied
         />
       ))}

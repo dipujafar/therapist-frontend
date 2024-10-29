@@ -59,6 +59,7 @@ const config: Config = {
         "primary-light-gray": "#F8FAFC",
         "primary-green": "#038C7F",
         "primary-gray": "#565656",
+        "foundation-white": "#FEF0F0",
       },
       borderRadius: {
         lg: "var(--radius)",

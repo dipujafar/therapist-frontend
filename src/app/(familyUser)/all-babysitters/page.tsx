@@ -1,4 +1,6 @@
+import { Search } from "lucide-react";
 import { Metadata } from "next";
+import AllBabySittersContainer from "./_components/AllBabySittersContainer";
 
 export const metadata: Metadata = {
   title: "All Babysitters",
@@ -6,7 +8,11 @@ export const metadata: Metadata = {
 };
 
 const AllBabySitter = () => {
-  return <div>ALl Babysitters</div>;
+  return (
+    <div>
+      <AllBabySittersContainer></AllBabySittersContainer>
+    </div>
+  );
 };
 
 export default AllBabySitter;
