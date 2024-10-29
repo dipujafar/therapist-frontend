@@ -45,7 +45,7 @@ export default function RootLayout({
           showAtBottom={false}
         />
 
-        <div className="min-h-[calc(100vh-250px)] pb-24">{children}</div>
+        <div className="min-h-[calc(100vh-250px)] ">{children}</div>
         <footer>
           <Footer></Footer>
         </footer>

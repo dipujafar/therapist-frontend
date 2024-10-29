@@ -48,7 +48,7 @@ const AllBabySittersContainer = () => {
 
       <motion.div
         variants={parentVariants}
-        animate="animate"
+        whileInView="animate"
         initial="initial"
         exit="exit"
         className="grid grid-cols-1  xl:w-[70%] mx-auto gap-y-10 "
