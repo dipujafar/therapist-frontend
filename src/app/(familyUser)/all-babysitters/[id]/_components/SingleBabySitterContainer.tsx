@@ -10,10 +10,15 @@ const SingleBabySitterContainer = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 xl:gap-x-14 gap-x-8 gap-y-8">
         <div className="lg:col-span-2 space-y-8">
           <ProfileDetails></ProfileDetails>
-          <SitterProfileReview></SitterProfileReview>
+          <div className="hidden lg:block">
+            <SitterProfileReview></SitterProfileReview>
+          </div>
         </div>
         <div>
           <ProfileInfo></ProfileInfo>
+        </div>
+        <div className="lg:hidden block">
+          <SitterProfileReview></SitterProfileReview>
         </div>
       </div>
     </div>

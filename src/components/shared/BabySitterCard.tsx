@@ -20,7 +20,7 @@ type TDataType = {
 
 const BabySitterCard = ({ data }: { data: TDataType }) => {
   return (
-    <Card className="border-none shadow-[0px 1px 10px 0px #0000001A]">
+    <Card className="border-none shadow-lg">
       <CardContent className="flex flex-col lg:flex-row lg:items-start justify-center items-center  gap-6 pt-6">
         {/* image and rating */}
         <div className="flex flex-col justify-center items-center gap-y-2">

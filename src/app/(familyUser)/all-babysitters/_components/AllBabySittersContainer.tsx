@@ -1,17 +1,8 @@
 "use client";
 import MovementElement from "@/animation/MovementElement";
-import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Rating } from "@/components/ui/rating";
 import { allBabySitters } from "@/utils/allBabySitter";
-import {
-  CalendarDays,
-  ChevronRight,
-  MapPinHouse,
-  Search,
-  SquareLibrary,
-} from "lucide-react";
-import Image from "next/image";
+import { Search } from "lucide-react";
 import { useState } from "react";
 import { Pagination } from "react-pagination-bar";
 import { motion } from "framer-motion";

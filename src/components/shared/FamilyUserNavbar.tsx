@@ -83,8 +83,19 @@ const FamilyUserNavbar = ({ className }: { className?: string }) => {
 
         {/* nav icons  and user profile*/}
         <div className="hidden lg:flex items-center justify-center gap-x-5">
-          <Link href={"/"}>
-            <Heart />
+          <Link href={"/favorite-babysitter"}>
+            <Heart
+              fill={
+                currentPathName === "favorite-babysitter"
+                  ? "#F26D6D"
+                  : "#F2F2F2"
+              }
+              className={
+                currentPathName === "favorite-babysitter"
+                  ? "text-primary-orange"
+                  : ""
+              }
+            />
           </Link>
           <Link href={"/"} className="relative">
             <CalendarDays />
@@ -146,8 +157,19 @@ const FamilyUserNavbar = ({ className }: { className?: string }) => {
 
                 {/* nav icons  and user profile*/}
                 <div className=" flex items-center justify-center gap-x-5">
-                  <Link href={"/"}>
-                    <Heart />
+                  <Link href={"/favorite-babysitter"}>
+                    <Heart
+                      fill={
+                        currentPathName === "favorite-babysitter"
+                          ? "#F26D6D"
+                          : "#F2F2F2"
+                      }
+                      className={
+                        currentPathName === "favorite-babysitter"
+                          ? "text-primary-orange"
+                          : ""
+                      }
+                    />
                   </Link>
                   <Link href={"/"} className="relative">
                     <CalendarDays />
