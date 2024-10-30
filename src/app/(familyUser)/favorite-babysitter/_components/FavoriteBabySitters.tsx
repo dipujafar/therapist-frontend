@@ -4,7 +4,7 @@ import {
   parentVariants,
 } from "@/animation/framerMotionVariants";
 import BabySitterCard from "@/components/shared/BabySitterCard";
-import { allBabySitters } from "@/utils/allBabySitter";
+import { allBabySitters } from "@/utils/allBabySitters";
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
 import Link from "next/link";

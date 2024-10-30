@@ -11,11 +11,7 @@ const ProfileInfo = () => {
     <div className="lg:space-y-10 space-y-5">
       {/* Contact Button */}
       <Button className="w-full py-6 bg-primary-orange group hover:bg-primary-orange/75">
-        Contact Dyneja{" "}
-        <MessageCircleMore
-          size={22}
-          className="ml-2 group-hover:animate-bounce"
-        />
+        Contact Dyneja
       </Button>
 
       {/* Availability schedule */}

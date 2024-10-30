@@ -1,7 +1,7 @@
 "use client";
 import MovementElement from "@/animation/MovementElement";
 import { Input } from "@/components/ui/input";
-import { allBabySitters } from "@/utils/allBabySitter";
+import { allBabySitters } from "@/utils/allBabySitters";
 import { Search } from "lucide-react";
 import { useState } from "react";
 import { Pagination } from "react-pagination-bar";

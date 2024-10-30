@@ -36,7 +36,6 @@ const navLinks = [
 ];
 
 const FamilyUserNavbar = ({ className }: { className?: string }) => {
-  const router = useRouter(); // Use useRouter hook
   const pathname = usePathname();
   const currentPathName = pathname?.split("/")[1];
   console.log(currentPathName);
@@ -97,7 +96,7 @@ const FamilyUserNavbar = ({ className }: { className?: string }) => {
               }
             />
           </Link>
-          <Link href={"/"} className="relative">
+          <Link href={"/book-sitter"} className="relative">
             <CalendarDays />
           </Link>
           <Link href={"/"}>
@@ -171,7 +170,7 @@ const FamilyUserNavbar = ({ className }: { className?: string }) => {
                       }
                     />
                   </Link>
-                  <Link href={"/"} className="relative">
+                  <Link href={"/book-sitter"} className="relative">
                     <CalendarDays />
                   </Link>
                   <Link href={"/"}>

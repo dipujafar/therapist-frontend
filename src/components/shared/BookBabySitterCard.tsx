@@ -1,25 +1,27 @@
 import { Card, CardContent } from "@/components/ui/card";
 import Image, { StaticImageData } from "next/image";
-import { Rating } from "../ui/rating";
-import {
-  CalendarDays,
-  ChevronRight,
-  Dot,
-  MapPinHouse,
-  SquareLibrary,
-} from "lucide-react";
+import { Dot, MapPinHouse } from "lucide-react";
+import { ReactNode } from "react";
+import icon1 from "@/assets/icons/sitter/sitterPageIcon1.png";
+import icon2 from "@/assets/icons/sitter/sitterPageIcon2.png";
 
 type TDataType = {
   name: string;
   image: string | StaticImageData;
-  rating: number;
+  children: number;
   location: string;
-  experience: string;
-  booking: number;
+  age: number;
+
   description: string;
 };
 
-const BabySitterCard = ({ data }: { data: TDataType }) => {
+const BookBabySitterCard = ({
+  data,
+  children,
+}: {
+  data: TDataType;
+  children?: ReactNode;
+}) => {
   return (
     <Card className="border-none shadow-lg">
       <CardContent className="flex flex-col lg:flex-row lg:items-start justify-center items-center  gap-6 pt-6">
@@ -32,16 +34,6 @@ const BabySitterCard = ({ data }: { data: TDataType }) => {
             height={900}
             className="lg:size-36 size-52"
           ></Image>
-          <div className="flex gap-x-2 items-center ">
-            <Rating
-              size={18}
-              rating={data?.rating}
-              className="text-[#FFA14E]"
-            ></Rating>
-            <p className="text-primary-gray">
-              {data?.rating} <span>(12)</span>
-            </p>
-          </div>
         </div>
 
         {/* name, address, description */}
@@ -58,25 +50,25 @@ const BabySitterCard = ({ data }: { data: TDataType }) => {
             </p>
             <Dot color="#141414B2"></Dot>
             <p className="flex  gap-2 items-center text-lg text-primary-gray">
-              <SquareLibrary color="#F26D6D" size={20} />
-              <span className="flex items-center">
-                Experience : <ChevronRight />
-                {data?.experience}
-              </span>
+              <Image src={icon1} alt="icon" />
+              {data?.children}
             </p>
             <Dot color="#141414B2"></Dot>
             <p className="flex gap-x-2 items-center text-lg text-primary-gray">
-              <CalendarDays color="#F26D6D" size={20} />
-              Booking : {data?.booking}
+              <Image src={icon2} alt="icon" />
+              {data?.age} Years
             </p>
           </div>
 
           {/* description */}
           <p className="text-lg text-primary-gray">{data?.description}</p>
+
+          {/* action button  */}
+          {children && <div>{children}</div>}
         </div>
       </CardContent>
     </Card>
   );
 };
 
-export default BabySitterCard;
+export default BookBabySitterCard;
