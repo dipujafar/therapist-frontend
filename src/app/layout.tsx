@@ -15,9 +15,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: {
     default: "Therapist | Home",
-    template: "%s | Therapist",
+    template: "%s | HUE-MAN Links",
   },
-  description: "This is official website of Therapist",
+  description: "This is official website of  Hue-Man Links",
 };
 
 export default function RootLayout({

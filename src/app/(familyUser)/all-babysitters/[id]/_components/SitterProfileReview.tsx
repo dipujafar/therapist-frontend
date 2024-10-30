@@ -8,14 +8,23 @@ import {
   childrenVariants,
   parentVariants,
 } from "@/animation/framerMotionVariants";
+import { useSearchParams } from "next/navigation";
+import SendReview from "./SendReview";
 
 const SitterProfileReview = () => {
+  const status = useSearchParams().get("status");
   return (
     <div>
       <h1 className="text-xl text-primary-blue font-medium mb-2">
         Reviews & Ratings
       </h1>
       <hr />
+
+      {status === "completed" && (
+        <div className="mt-5">
+          <SendReview></SendReview>
+        </div>
+      )}
       <motion.div
         variants={parentVariants}
         initial="initial"
