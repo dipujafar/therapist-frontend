@@ -35,7 +35,7 @@ const navLinks = [
   },
 ];
 
-const FamilyUserNavbar = ({ className }: { className?: string }) => {
+const UserNavbar = ({ className }: { className?: string }) => {
   const pathname = usePathname();
   const currentPathName = pathname?.split("/")[1];
   console.log(currentPathName);
@@ -97,7 +97,11 @@ const FamilyUserNavbar = ({ className }: { className?: string }) => {
             />
           </Link>
           <Link href={"/book-sitter"} className="relative">
-            <CalendarDays />
+            <CalendarDays
+              className={cn(
+                currentPathName === "book-sitter" ? "text-primary-orange" : ""
+              )}
+            />
           </Link>
           <Link href={"/"}>
             <MessageCircleMore />
@@ -171,7 +175,13 @@ const FamilyUserNavbar = ({ className }: { className?: string }) => {
                     />
                   </Link>
                   <Link href={"/book-sitter"} className="relative">
-                    <CalendarDays />
+                    <CalendarDays
+                      className={cn(
+                        currentPathName === "book-sitter"
+                          ? "text-primary-orange"
+                          : ""
+                      )}
+                    />
                   </Link>
                   <Link href={"/"}>
                     <MessageCircleMore />
@@ -189,4 +199,4 @@ const FamilyUserNavbar = ({ className }: { className?: string }) => {
   );
 };
 
-export default FamilyUserNavbar;
+export default UserNavbar;
