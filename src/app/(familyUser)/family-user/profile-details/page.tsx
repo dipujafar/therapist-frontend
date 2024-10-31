@@ -1,9 +1,10 @@
+import MakeConnectionForm from "@/app/(public)/make-connection/_components/MakeConnectionForm";
 import React from "react";
 
 const FamilyUserProfileDetails = () => {
   return (
     <div>
-      <h2> ProfileDetails </h2>
+      <MakeConnectionForm></MakeConnectionForm>
     </div>
   );
 };
