@@ -31,7 +31,7 @@ const SIDEBAR_LINKS = [
     key: "my-plan",
     label: "My Plan",
     icon: <History size={25} />,
-    href: "/user/order-history",
+    href: "/family-user/plan",
   },
   {
     key: "settings",
@@ -43,9 +43,12 @@ const SIDEBAR_LINKS = [
 
 const UserDashboardSidebar = () => {
   const pathname = usePathname();
-  const path = pathname?.split("/")[2];
+  const path = pathname?.split("/")[2].split("-")[1];
+  const subpath = pathname?.split("/")[2];
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const router = useRouter();
+
+  console.log(path);
 
   const [fileName, setFileName] = useState<string | null>(null);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
@@ -183,6 +186,8 @@ const UserDashboardSidebar = () => {
                   pathname === link.href &&
                     " bg-primary-orange text-primary-white",
                   link.href.includes(path) &&
+                    " bg-primary-orange  text-primary-white",
+                  link.href.includes(subpath) &&
                     " bg-primary-orange  text-primary-white"
                 )}
               >
