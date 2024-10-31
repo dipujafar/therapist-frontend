@@ -37,7 +37,7 @@ const SIDEBAR_LINKS = [
     key: "settings",
     label: "Settings",
     icon: <Settings />,
-    href: "/favorite-products",
+    href: "/family-user/settings",
   },
 ];
 
@@ -173,13 +173,13 @@ const UserDashboardSidebar = () => {
             </div>
           </div>
 
-          <div className="space-y-2 px-2">
+          <div className=" px-2">
             {SIDEBAR_LINKS.map((link) => (
               <Link
                 href={link.href}
                 key={link.key}
                 className={cn(
-                  "flex items-center gap-x-3 px-5 py-4 text-lg rounded text-primary-gray hover:bg-primary-gray hover:text-primary-white  transition-all duration-300 ease-in-out ",
+                  "flex items-center gap-x-3 px-5 py-3 text-lg rounded text-primary-gray hover:bg-primary-gray hover:text-primary-white  transition-all duration-300 ease-in-out ",
                   pathname === link.href &&
                     " bg-primary-orange text-primary-white",
                   link.href.includes(path) &&

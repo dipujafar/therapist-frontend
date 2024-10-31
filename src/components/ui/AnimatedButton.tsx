@@ -13,9 +13,10 @@ type TProsType = {
   children?: ReactNode;
   className?: string;
   disabled?: boolean;
+  type?: "button" | "submit" | "reset";
 };
 
-function AnimatedButton({ children, className, disabled }: TProsType) {
+function AnimatedButton({ children, className, disabled, type }: TProsType) {
   const [scope, animate] = useAnimate();
 
   const onButtonClick = () => {
@@ -73,7 +74,12 @@ function AnimatedButton({ children, className, disabled }: TProsType) {
 
   return (
     <div ref={scope}>
-      <Button onClick={onButtonClick} className={cn("relative", className)}>
+      <Button
+        onClick={onButtonClick}
+        className={cn("relative", className)}
+        disabled={disabled ? true : false}
+        type={type}
+      >
         <span className="sr-only">{children}</span>
         <span className="block h-8 overflow-hidden" aria-hidden>
           {(children as string)?.split("")?.map((letter, index) => (
