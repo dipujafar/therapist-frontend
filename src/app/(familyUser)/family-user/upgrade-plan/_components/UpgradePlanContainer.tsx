@@ -18,7 +18,7 @@ const UpgradePlanContainer = () => {
         {/* plan 1 */}
         <div className="max-w-md">
           <InfoDynamicCard
-            className="bg-[#5B4373] text-primary-white space-y-3   border-b-[6px] border-b-[#FBD2D2] border-r-[6px] border-r-[#FBD2D2]"
+            className="bg-[#5B4373] text-primary-white space-y-3   border-b-[6px] border-b-[#FBD2D2] border-r-[6px] border-r-[#FBD2D2] h-[510px]"
             title="Connect Sometimes"
             subTitle="$25 per request + Linkers’ hourly rate"
           >
@@ -53,9 +53,9 @@ const UpgradePlanContainer = () => {
         </div>
 
         {/* plan 2 */}
-        <div className="max-w-md">
+        <div className="max-w-md h-[510px]">
           <InfoDynamicCard
-            className="bg-[#976FBF] text-primary-white space-y-6 px-5   border-b-[6px] border-b-[#DFD2EB] border-r-[6px] border-r-[#DFD2EB]"
+            className="bg-[#976FBF] text-primary-white px-5 border-b-[6px] border-b-[#DFD2EB] border-r-[6px] border-r-[#DFD2EB] h-full flex flex-col justify-between"
             title="Full Circle Connection"
             subTitle="$150/Month + Linkers’ hourly rate Unlimited sits each month"
           >
@@ -68,11 +68,12 @@ const UpgradePlanContainer = () => {
                 especially useful for families with unpredictable or demanding
                 schedules.
               </p>
-              <div className="w-[80%] mx-auto">
-                <Button className="w-full bg-primary-white text-primary-black hover:bg-primary-gray hover:text-primary-white font-semibold">
-                  Choose Plan
-                </Button>
-              </div>
+            </div>
+
+            <div className="w-[80%] mx-auto mt-auto">
+              <Button className="w-full bg-primary-white text-primary-black hover:bg-primary-gray hover:text-primary-white font-semibold">
+                Choose Plan
+              </Button>
             </div>
           </InfoDynamicCard>
         </div>

@@ -1,14 +1,13 @@
 "use client";
 import Image from "next/image";
 import logo from "@/assets/images/logo.png";
-import { Button } from "../ui/button";
 import {
   CalendarDays,
   Heart,
   MessageCircleMore,
   TableOfContents,
 } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import {
   Sheet,
@@ -38,7 +37,7 @@ const navLinks = [
 const UserNavbar = ({ className }: { className?: string }) => {
   const pathname = usePathname();
   const currentPathName = pathname?.split("/")[1];
-  console.log(currentPathName);
+  const role = "babySitter";
 
   // Function to handle category selection
 
@@ -82,20 +81,23 @@ const UserNavbar = ({ className }: { className?: string }) => {
 
         {/* nav icons  and user profile*/}
         <div className="hidden lg:flex items-center justify-center gap-x-5">
-          <Link href={"/favorite-babysitter"}>
-            <Heart
-              fill={
-                currentPathName === "favorite-babysitter"
-                  ? "#F26D6D"
-                  : "#F2F2F2"
-              }
-              className={
-                currentPathName === "favorite-babysitter"
-                  ? "text-primary-orange"
-                  : ""
-              }
-            />
-          </Link>
+          {role === "familyUser" && (
+            <Link href={"/favorite-babysitter"}>
+              <Heart
+                fill={
+                  currentPathName === "favorite-babysitter"
+                    ? "#F26D6D"
+                    : "#F2F2F2"
+                }
+                className={
+                  currentPathName === "favorite-babysitter"
+                    ? "text-primary-orange"
+                    : ""
+                }
+              />
+            </Link>
+          )}
+
           <Link href={"/book-sitter"} className="relative">
             <CalendarDays
               className={cn(
@@ -160,20 +162,23 @@ const UserNavbar = ({ className }: { className?: string }) => {
 
                 {/* nav icons  and user profile*/}
                 <div className=" flex items-center justify-center gap-x-5">
-                  <Link href={"/favorite-babysitter"}>
-                    <Heart
-                      fill={
-                        currentPathName === "favorite-babysitter"
-                          ? "#F26D6D"
-                          : "#F2F2F2"
-                      }
-                      className={
-                        currentPathName === "favorite-babysitter"
-                          ? "text-primary-orange"
-                          : ""
-                      }
-                    />
-                  </Link>
+                  {role === "familyUser" && (
+                    <Link href={"/favorite-babysitter"}>
+                      <Heart
+                        fill={
+                          currentPathName === "favorite-babysitter"
+                            ? "#F26D6D"
+                            : "#F2F2F2"
+                        }
+                        className={
+                          currentPathName === "favorite-babysitter"
+                            ? "text-primary-orange"
+                            : ""
+                        }
+                      />
+                    </Link>
+                  )}
+
                   <Link href={"/book-sitter"} className="relative">
                     <CalendarDays
                       className={cn(
