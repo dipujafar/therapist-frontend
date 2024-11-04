@@ -33,6 +33,7 @@ const AnimatedText = ({
             delay: index * delay,
             ease: "easeIn",
           }}
+          
           className={cn("inline-block", className)}
         >
           {char}

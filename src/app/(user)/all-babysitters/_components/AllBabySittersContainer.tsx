@@ -17,6 +17,7 @@ const AllBabySittersContainer = () => {
   const [search, setSearch] = useState<string>("");
   const [currentPage, setCurrentPage] = useState(1);
   const pagePostsLimit = 6;
+
   return (
     <div className="lg:space-y-14 space-y-6">
       <MovementElement duration={0.1} y="-20%">

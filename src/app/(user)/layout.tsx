@@ -1,8 +1,9 @@
 import Container from "@/components/shared/Container";
 import UserNavbar from "@/components/shared/UserNavbar";
-import React, { ReactNode } from "react";
 
-const BabySitterLayout = ({ children }: { children: ReactNode }) => {
+import React from "react";
+
+const UserLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <Container>
       <nav>
@@ -13,4 +14,4 @@ const BabySitterLayout = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export default BabySitterLayout;
+export default UserLayout;

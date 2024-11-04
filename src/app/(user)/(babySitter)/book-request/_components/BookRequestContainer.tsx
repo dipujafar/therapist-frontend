@@ -1,13 +1,14 @@
 "use client";
+import BookSitterCompleted from "@/app/(user)/(familyUser)/book-sitter/_components/BookSitterCompleted";
 
+import BookSitterRejected from "@/app/(user)/(familyUser)/book-sitter/_components/BookSitterRejected";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import BookSitterRejected from "./BookSitterRejected";
-import BookSitterPending from "./BookSitterPending";
-import BookSitterCompleted from "./BookSitterCompleted";
-import { Book } from "lucide-react";
-import BookSitterRequest from "./BookSitterRequest";
+import BookRequests from "./BookRequests";
+import BookRequestPending from "./BookRequestPending";
+import BookRequestCompleted from "./BookRequestCompleted";
+import BookRequestRejected from "./BookRequestRejected";
 
-const BookSitterContainer = () => {
+const BookRequestContainer = () => {
   return (
     <div>
       {/* navigation tabs */}
@@ -44,20 +45,20 @@ const BookSitterContainer = () => {
 
         {/* tabs content */}
         <TabsContent value="request" className="lg:mt-16 mt-8">
-          <BookSitterRequest></BookSitterRequest>
+          <BookRequests></BookRequests>
         </TabsContent>
         <TabsContent value="pending" className="lg:mt-16 mt-8">
-          <BookSitterPending></BookSitterPending>
+          <BookRequestPending></BookRequestPending>
         </TabsContent>
         <TabsContent value="completed" className="lg:mt-16 mt-8">
-          <BookSitterCompleted></BookSitterCompleted>
+          <BookRequestCompleted></BookRequestCompleted>
         </TabsContent>
         <TabsContent value="reject" className="lg:mt-16 mt-8">
-          <BookSitterRejected></BookSitterRejected>
+          <BookRequestRejected></BookRequestRejected>
         </TabsContent>
       </Tabs>
     </div>
   );
 };
 
-export default BookSitterContainer;
+export default BookRequestContainer;

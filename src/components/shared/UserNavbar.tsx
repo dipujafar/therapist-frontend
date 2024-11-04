@@ -21,6 +21,10 @@ import userProfile from "@/assets/Images/family-user/userProfileDummyImage.png";
 
 const navLinks = [
   {
+    label: "Home",
+    value: "/",
+  },
+  {
     label: "Babysitter",
     value: "all-babysitters",
   },
@@ -37,7 +41,7 @@ const navLinks = [
 const UserNavbar = ({ className }: { className?: string }) => {
   const pathname = usePathname();
   const currentPathName = pathname?.split("/")[1];
-  const role = "babySitter";
+  let role = "babySitter";
 
   // Function to handle category selection
 
@@ -98,10 +102,15 @@ const UserNavbar = ({ className }: { className?: string }) => {
             </Link>
           )}
 
-          <Link href={"/book-sitter"} className="relative">
+          <Link
+            href={role === "familyUser" ? "/book-sitter" : "/book-request"}
+            className="relative"
+          >
             <CalendarDays
               className={cn(
-                currentPathName === "book-sitter" ? "text-primary-orange" : ""
+                currentPathName === "book-sitter" || "book-request"
+                  ? "text-primary-orange"
+                  : ""
               )}
             />
           </Link>
@@ -179,10 +188,15 @@ const UserNavbar = ({ className }: { className?: string }) => {
                     </Link>
                   )}
 
-                  <Link href={"/book-sitter"} className="relative">
+                  <Link
+                    href={
+                      role === "familyUser" ? "/book-sitter" : "/book-request"
+                    }
+                    className="relative"
+                  >
                     <CalendarDays
                       className={cn(
-                        currentPathName === "book-sitter"
+                        currentPathName === "book-sitter" || "book-request"
                           ? "text-primary-orange"
                           : ""
                       )}

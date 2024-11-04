@@ -7,12 +7,15 @@ import icon4 from "@/assets/icons/sitter/sitterPageIcon7.png";
 import Image from "next/image";
 
 const ProfileInfo = () => {
+  let role = "babysitter";
   return (
     <div className="lg:space-y-10 space-y-5">
       {/* Contact Button */}
-      <Button className="w-full py-6 bg-primary-orange group hover:bg-primary-orange/75">
-        Contact Dyneja
-      </Button>
+      {role === "familyUser" && (
+        <Button className="w-full py-6 bg-primary-orange group hover:bg-primary-orange/75">
+          Contact Dyneja
+        </Button>
+      )}
 
       {/* Availability schedule */}
       <div className="lg:space-y-6 space-y-3">

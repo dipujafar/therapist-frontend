@@ -7,6 +7,7 @@ import { useState } from "react";
 
 const SitterBanner = () => {
   const [fill, setFill] = useState(false);
+  let role = "babysitter";
   return (
     <div className="flex flex-col md:flex-row items-center justify-center lg:gap-x-20 gap-x-10 gap-y-5 py-8 bg-gradient-to-r from-[#038C7F] to-[#558399] px-5 relative">
       {/* profile Image */}
@@ -30,15 +31,18 @@ const SitterBanner = () => {
       </div>
 
       {/* Favorite Button */}
-      <div
-        className="absolute top-4 right-4 bg-foundation-white p-2 rounded-full cursor-pointer"
-        onClick={() => setFill(!fill)}
-      >
-        <Heart
-          fill={fill ? "#F26D6D" : "#FEF0F0"}
-          className={fill ? "text-[#F26D6D]" : ""}
-        />
-      </div>
+
+      {role === "familyUser" && (
+        <div
+          className="absolute top-4 right-4 bg-foundation-white p-2 rounded-full cursor-pointer"
+          onClick={() => setFill(!fill)}
+        >
+          <Heart
+            fill={fill ? "#F26D6D" : "#FEF0F0"}
+            className={fill ? "text-[#F26D6D]" : ""}
+          />
+        </div>
+      )}
     </div>
   );
 };
