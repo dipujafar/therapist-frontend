@@ -4,6 +4,7 @@ import { Dot, MapPinHouse } from "lucide-react";
 import { ReactNode } from "react";
 import icon1 from "@/assets/icons/sitter/sitterPageIcon1.png";
 import icon2 from "@/assets/icons/sitter/sitterPageIcon2.png";
+import Link from "next/link";
 
 type TDataType = {
   name: string;
@@ -15,7 +16,7 @@ type TDataType = {
   description: string;
 };
 
-const BookBabySitterCard = ({
+const BookRequestCard = ({
   data,
   children,
 }: {
@@ -27,20 +28,24 @@ const BookBabySitterCard = ({
       <CardContent className="flex flex-col lg:flex-row lg:items-start justify-center items-center  gap-6 pt-6">
         {/* image and rating */}
         <div className="flex flex-col justify-center items-center gap-y-2">
-          <Image
-            src={data?.image}
-            alt="baby sitter"
-            width={1000}
-            height={900}
-            className="lg:size-36 size-52"
-          ></Image>
+          <Link href={`/family-user/${data?.name}`}>
+            <Image
+              src={data?.image}
+              alt="baby sitter"
+              width={1000}
+              height={900}
+              className="lg:size-36 size-52"
+            ></Image>
+          </Link>
         </div>
 
         {/* name, address, description */}
-        <div className=" flex-1 flex flex-col   gap-y-6 ">
-          <h4 className="text-xl lg:text-3xl font-medium text-primary-black">
-            {data?.name}
-          </h4>
+        <div className="flex-1 flex flex-col   gap-y-6 ">
+          <Link href={`/family-user/${data?.name}`}>
+            <h4 className="text-xl lg:text-3xl font-medium text-primary-black">
+              {data?.name}
+            </h4>
+          </Link>
 
           {/* location , experience, booking */}
           <div className="flex flex-col md:flex-row gap-2 justify-between lg:items-center">
@@ -71,4 +76,4 @@ const BookBabySitterCard = ({
   );
 };
 
-export default BookBabySitterCard;
+export default BookRequestCard;

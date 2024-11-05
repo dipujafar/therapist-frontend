@@ -2,7 +2,7 @@ import {
   childrenVariants,
   parentVariants,
 } from "@/animation/framerMotionVariants";
-import BookBabySitterCard from "@/components/shared/BookBabySitterCard";
+import BookBabySitterCard from "@/components/shared/Family/BookBabySitterCard";
 import AnimatedButton from "@/components/ui/AnimatedButton";
 import { Button } from "@/components/ui/button";
 import { bookBabySitterData } from "@/utils/bookBabySitterData";
@@ -31,7 +31,7 @@ const BookSitterPending = () => {
                 <Button className="w-full bg-primary-orange hover:bg-primary-gray group flex-1">
                   <MessageCircleMore
                     size={20}
-                    className="mr-2 group-hover:animate-bounce"
+                    className="mr-2 group-hover:animate-ping"
                   />
                   Message
                 </Button>

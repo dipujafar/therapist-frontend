@@ -2,7 +2,7 @@ import {
   childrenVariants,
   parentVariants,
 } from "@/animation/framerMotionVariants";
-import BookBabySitterCard from "@/components/shared/BookBabySitterCard";
+import BookRequestCard from "@/components/shared/BabySitter/BookRequestCard";
 import { bookBabySitterData } from "@/utils/bookBabySitterData";
 import { motion } from "framer-motion";
 
@@ -22,7 +22,7 @@ const BookRequestRejected = () => {
             key={index}
             className="lg:space-y-10 space-y-5"
           >
-            <BookBabySitterCard data={babySitter}></BookBabySitterCard>
+            <BookRequestCard data={babySitter}></BookRequestCard>
 
             <hr />
           </motion.div>

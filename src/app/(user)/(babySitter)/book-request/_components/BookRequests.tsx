@@ -2,7 +2,6 @@ import {
   childrenVariants,
   parentVariants,
 } from "@/animation/framerMotionVariants";
-import BookBabySitterCard from "@/components/shared/BookBabySitterCard";
 import { Button } from "@/components/ui/button";
 import { bookBabySitterData } from "@/utils/bookBabySitterData";
 import { MessageCircleMore } from "lucide-react";
@@ -13,12 +12,10 @@ import {
   DialogDescription,
   DialogFooter,
   DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import BookRequestCard from "@/components/shared/BabySitter/BookRequestCard";
 
 const BookRequests = () => {
   return (
@@ -36,13 +33,13 @@ const BookRequests = () => {
             key={index}
             className="lg:space-y-10 space-y-5"
           >
-            <BookBabySitterCard data={babySitter}>
+            <BookRequestCard data={babySitter}>
               <div className="flex gap-x-4 gap-y-2 flex-col md:flex-row ">
                 {/* message button */}
                 <Button className="w-full bg-primary-orange hover:bg-primary-gray group">
                   <MessageCircleMore
                     size={20}
-                    className="mr-2 group-hover:animate-bounce"
+                    className="mr-2 group-hover:animate-ping"
                   />
                   Message
                 </Button>
@@ -75,7 +72,7 @@ const BookRequests = () => {
                         type="submit"
                         className="w-full bg-primary-orange"
                       >
-                        Save changes
+                        Submit
                       </Button>
                     </DialogFooter>
                   </DialogContent>
@@ -86,7 +83,7 @@ const BookRequests = () => {
                   Approved
                 </Button>
               </div>
-            </BookBabySitterCard>
+            </BookRequestCard>
 
             <hr />
           </motion.div>

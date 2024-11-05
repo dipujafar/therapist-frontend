@@ -2,7 +2,7 @@ import {
   childrenVariants,
   parentVariants,
 } from "@/animation/framerMotionVariants";
-import BookBabySitterCard from "@/components/shared/BookBabySitterCard";
+import BookBabySitterCard from "@/components/shared/Family/BookBabySitterCard";
 import { Button } from "@/components/ui/button";
 import { bookBabySitterData } from "@/utils/bookBabySitterData";
 import { motion } from "framer-motion";
@@ -28,7 +28,7 @@ const BookSitterRequest = () => {
               <Button className="w-full bg-primary-orange hover:bg-primary-gray group">
                 <MessageCircleMore
                   size={20}
-                  className="mr-2 group-hover:animate-bounce"
+                  className="mr-2 group-hover:animate-ping"
                 />
                 Message
               </Button>

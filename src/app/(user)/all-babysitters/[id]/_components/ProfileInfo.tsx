@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircleMore } from "lucide-react";
 import icon1 from "@/assets/icons/sitter/sitterPageIcon4.png";
 import icon2 from "@/assets/icons/sitter/sitterPageIcon5.png";
 import icon3 from "@/assets/icons/sitter/sitterPageIcon6.png";
 import icon4 from "@/assets/icons/sitter/sitterPageIcon7.png";
 import Image from "next/image";
+import { MessageCircleMore } from "lucide-react";
 
 const ProfileInfo = () => {
   let role = "babysitter";
@@ -13,7 +13,8 @@ const ProfileInfo = () => {
       {/* Contact Button */}
       {role === "familyUser" && (
         <Button className="w-full py-6 bg-primary-orange group hover:bg-primary-orange/75">
-          Contact Dyneja
+          Contact Dyneja{" "}
+          <MessageCircleMore className="ml-2 group-hover:animate-ping" />
         </Button>
       )}
 

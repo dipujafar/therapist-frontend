@@ -1,10 +1,11 @@
 import AnimatedButton from "@/components/ui/AnimatedButton";
+import { Button } from "@/components/ui/button";
 import { InputRating } from "@/components/ui/inputrating";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 
-const SendReview = () => {
+const SendFeedback = () => {
   const [selectRating, setSelectRating] = useState(0);
 
   const handleRatingChange = (newRating: number) => {
@@ -39,4 +40,4 @@ const SendReview = () => {
   );
 };
 
-export default SendReview;
+export default SendFeedback;

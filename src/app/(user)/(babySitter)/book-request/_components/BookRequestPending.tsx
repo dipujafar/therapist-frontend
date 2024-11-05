@@ -2,13 +2,13 @@ import {
   childrenVariants,
   parentVariants,
 } from "@/animation/framerMotionVariants";
-import BookBabySitterCard from "@/components/shared/BookBabySitterCard";
 import { Button } from "@/components/ui/button";
 import { bookBabySitterData } from "@/utils/bookBabySitterData";
 import { MessageCircleMore } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import AnimatedButton from "@/components/ui/AnimatedButton";
+import BookRequestCard from "@/components/shared/BabySitter/BookRequestCard";
 
 const BookRequestPending = () => {
   return (
@@ -26,24 +26,24 @@ const BookRequestPending = () => {
             key={index}
             className="lg:space-y-10 space-y-5"
           >
-            <BookBabySitterCard data={babySitter}>
+            <BookRequestCard data={babySitter}>
               <div className="flex flex-col md:flex-row items-center justify-between gap-x-2 gap-y-2 ">
                 <Button className="w-full bg-primary-orange hover:bg-primary-gray group flex-1">
                   <MessageCircleMore
                     size={20}
-                    className="mr-2 group-hover:animate-bounce"
+                    className="mr-2 group-hover:animate-ping"
                   />
                   Message
                 </Button>
                 <div className="flex-1 w-full">
-                  <Link href={"/all-babysitters/0?status=completed"}>
+                  <Link href={"/family-user/0?status=completed"}>
                     <AnimatedButton className="w-full  bg-primary-orange text-primary-white border-none hover:bg-primary-orange/75  ">
                       Completed
                     </AnimatedButton>
                   </Link>
                 </div>
               </div>
-            </BookBabySitterCard>
+            </BookRequestCard>
 
             <hr />
           </motion.div>

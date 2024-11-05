@@ -2,7 +2,7 @@ import {
   childrenVariants,
   parentVariants,
 } from "@/animation/framerMotionVariants";
-import BookBabySitterCard from "@/components/shared/BookBabySitterCard";
+import BookBabySitterCard from "@/components/shared/Family/BookBabySitterCard";
 import { bookBabySitterData } from "@/utils/bookBabySitterData";
 import { motion } from "framer-motion";
 
