@@ -1,8 +1,5 @@
 "use client";
-import { Card, CardContent } from "@/components/ui/card";
-import { Rating } from "@/components/ui/rating";
 import { sitterReviews } from "@/utils/sitterReviews";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   childrenVariants,
@@ -10,6 +7,7 @@ import {
 } from "@/animation/framerMotionVariants";
 import { useSearchParams } from "next/navigation";
 import SendReview from "./SendReview";
+import ReviewCard from "@/components/shared/ReviewCard";
 
 const SitterProfileReview = () => {
   const status = useSearchParams().get("status");
@@ -34,27 +32,7 @@ const SitterProfileReview = () => {
       >
         {sitterReviews?.map((review, index) => (
           <motion.div variants={childrenVariants} key={index}>
-            <Card className="border-none shadow-[0px 1px 10px 0px #0000001A] pt-5 px-6">
-              <CardContent className="space-y-5">
-                <div className="flex items-center gap-x-5">
-                  <Image
-                    src={review?.image}
-                    alt="reviewer image"
-                    width={900}
-                    height={700}
-                    className="size-20 rounded-full"
-                  ></Image>
-                  <div className="">
-                    <h4 className="text-lg  font-medium">{review?.name}</h4>
-                    <p className="text-primary-gray">{review?.designation}</p>
-                    <Rating rating={review?.rating} size={20}></Rating>
-                  </div>
-                </div>
-                <div>
-                  <p className="text-primary-gray">{review?.comment}</p>
-                </div>
-              </CardContent>
-            </Card>
+            <ReviewCard review={review}></ReviewCard>
           </motion.div>
         ))}
       </motion.div>

@@ -28,6 +28,7 @@ const Rating = React.forwardRef<
         <Star
           size={size || 24}
           key={index}
+          color={color || "text-[#FF8A00]"}
           className={
             isFilled ? ` ${color || "text-[#FF8A00]"}` : "text-[#E0E0E0]"
           }

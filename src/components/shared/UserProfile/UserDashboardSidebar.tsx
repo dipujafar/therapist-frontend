@@ -13,6 +13,8 @@ import {
   UserRoundPen,
   ImageIcon,
   Camera,
+  LibraryBig,
+  StarHalf,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -20,7 +22,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import dummyProfile from "@/assets/Images/dummyProfile.png";
 
-const SIDEBAR_LINKS = [
+const Family_USER_SIDEBAR_LINKS = [
   {
     key: "profile-details",
     label: "Profile Details",
@@ -40,6 +42,32 @@ const SIDEBAR_LINKS = [
     href: "/family-user/settings",
   },
 ];
+const SITTER_SIDEBAR_LINKS = [
+  {
+    key: "profile-details",
+    label: "Profile Details",
+    icon: <UserRoundPen />,
+    href: "/baby-sitter/profile-details",
+  },
+  {
+    key: "others-information",
+    label: "Others Information",
+    icon: <LibraryBig size={25} />,
+    href: "/baby-sitter/others-information",
+  },
+  {
+    key: "review-rating",
+    label: "Review & Rating",
+    icon: <StarHalf size={25} />,
+    href: "/baby-sitter/review-rating",
+  },
+  {
+    key: "settings",
+    label: "Settings",
+    icon: <Settings />,
+    href: "/baby-sitter/settings",
+  },
+];
 
 const UserDashboardSidebar = () => {
   const pathname = usePathname();
@@ -47,11 +75,9 @@ const UserDashboardSidebar = () => {
   const subpath = pathname?.split("/")[2];
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const router = useRouter();
-
-  console.log(path);
-
   const [fileName, setFileName] = useState<string | null>(null);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
+  let role = "babySitter";
 
   // Toggle the sidebar visibility
   const toggleSidebar = () => {
@@ -176,25 +202,44 @@ const UserDashboardSidebar = () => {
             </div>
           </div>
 
-          <div className=" px-2">
-            {SIDEBAR_LINKS.map((link) => (
-              <Link
-                href={link.href}
-                key={link.key}
-                className={cn(
-                  "flex items-center gap-x-3 px-5 py-3 text-lg rounded text-primary-gray hover:bg-primary-gray hover:text-primary-white  transition-all duration-300 ease-in-out ",
-                  pathname === link.href &&
-                    " bg-primary-orange text-primary-white",
-                  link.href.includes(path) &&
-                    " bg-primary-orange  text-primary-white",
-                  link.href.includes(subpath) &&
-                    " bg-primary-orange  text-primary-white"
-                )}
-              >
-                {link.icon}
-                <span>{link.label}</span>
-              </Link>
-            ))}
+          <div className=" px-2 ">
+            {role === "familyUser"
+              ? Family_USER_SIDEBAR_LINKS?.map((link) => (
+                  <Link
+                    href={link.href}
+                    key={link.key}
+                    className={cn(
+                      "flex items-center gap-x-3 px-5 py-3 text-lg rounded text-primary-gray hover:bg-primary-gray hover:text-primary-white  transition-all duration-300 ease-in-out ",
+                      pathname === link.href &&
+                        " bg-primary-orange text-primary-white",
+                      link.href.includes(path) &&
+                        " bg-primary-orange  text-primary-white",
+                      link.href.includes(subpath) &&
+                        " bg-primary-orange  text-primary-white"
+                    )}
+                  >
+                    {link.icon}
+                    <span>{link.label}</span>
+                  </Link>
+                ))
+              : SITTER_SIDEBAR_LINKS?.map((link) => (
+                  <Link
+                    href={link.href}
+                    key={link.key}
+                    className={cn(
+                      "flex items-center gap-x-3 px-5 py-3 text-lg rounded text-primary-gray hover:bg-primary-gray hover:text-primary-white  transition-all duration-300 ease-in-out ",
+                      pathname === link.href &&
+                        " bg-primary-orange text-primary-white",
+                      link.href.includes(path) &&
+                        " bg-primary-orange  text-primary-white",
+                      link.href.includes(subpath) &&
+                        " bg-primary-orange  text-primary-white"
+                    )}
+                  >
+                    {link.icon}
+                    <span>{link.label}</span>
+                  </Link>
+                ))}
 
             <button
               type="button"

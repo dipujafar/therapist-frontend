@@ -21,10 +21,6 @@ import userProfile from "@/assets/Images/family-user/userProfileDummyImage.png";
 
 const navLinks = [
   {
-    label: "Home",
-    value: "/",
-  },
-  {
     label: "Babysitter",
     value: "all-babysitters",
   },

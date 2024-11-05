@@ -1,7 +1,7 @@
 import HomeContainer from "@/components/(public)/Home/HomeContainer";
 
 export const metadata = {
-  title: "Home",
+  title: "Home ",
   description: "This is Home Page",
 };
 
