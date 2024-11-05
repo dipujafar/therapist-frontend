@@ -53,15 +53,15 @@ const BookRequestCard = ({
               <MapPinHouse color="#F26D6D" size={20} />
               {data?.location}
             </p>
-            <Dot color="#141414B2"></Dot>
+            <Dot color="#141414B2" className="hidden md:block"></Dot>
             <p className="flex  gap-2 items-center text-lg text-primary-gray">
               <Image src={icon1} alt="icon" />
               {data?.children}
             </p>
-            <Dot color="#141414B2"></Dot>
+            <Dot color="#141414B2" className="hidden md:block"></Dot>
             <p className="flex gap-x-2 items-center text-lg text-primary-gray">
               <Image src={icon2} alt="icon" />
-              {data?.age} Years
+              {data?.age} 7 Years old
             </p>
           </div>
 

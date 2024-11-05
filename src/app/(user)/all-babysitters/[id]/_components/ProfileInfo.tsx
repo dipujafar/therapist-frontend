@@ -5,6 +5,7 @@ import icon3 from "@/assets/icons/sitter/sitterPageIcon6.png";
 import icon4 from "@/assets/icons/sitter/sitterPageIcon7.png";
 import Image from "next/image";
 import { MessageCircleMore } from "lucide-react";
+import Link from "next/link";
 
 const ProfileInfo = () => {
   let role = "babysitter";
@@ -12,10 +13,12 @@ const ProfileInfo = () => {
     <div className="lg:space-y-10 space-y-5">
       {/* Contact Button */}
       {role === "familyUser" && (
-        <Button className="w-full py-6 bg-primary-orange group hover:bg-primary-orange/75">
-          Contact Dyneja{" "}
-          <MessageCircleMore className="ml-2 group-hover:animate-ping" />
-        </Button>
+        <Link href={"/message"}>
+          <Button className="w-full py-6 bg-primary-orange group hover:bg-primary-orange/75">
+            Contact Dyneja{" "}
+            <MessageCircleMore className="ml-2 group-hover:animate-ping" />
+          </Button>
+        </Link>
       )}
 
       {/* Availability schedule */}

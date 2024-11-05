@@ -28,13 +28,17 @@ const BookRequestPending = () => {
           >
             <BookRequestCard data={babySitter}>
               <div className="flex flex-col md:flex-row items-center justify-between gap-x-2 gap-y-2 ">
-                <Button className="w-full bg-primary-orange hover:bg-primary-gray group flex-1">
-                  <MessageCircleMore
-                    size={20}
-                    className="mr-2 group-hover:animate-ping"
-                  />
-                  Message
-                </Button>
+                <div className="flex-1">
+                  <Link href={"/message"}>
+                    <Button className="w-full bg-primary-orange hover:bg-primary-gray group flex-1">
+                      <MessageCircleMore
+                        size={20}
+                        className="mr-2 group-hover:animate-ping"
+                      />
+                      Message
+                    </Button>
+                  </Link>
+                </div>
                 <div className="flex-1 w-full">
                   <Link href={"/family-user/0?status=completed"}>
                     <AnimatedButton className="w-full  bg-primary-orange text-primary-white border-none hover:bg-primary-orange/75  ">

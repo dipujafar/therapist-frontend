@@ -5,15 +5,18 @@ import icon2 from "@/assets/icons/sitter/sitterPageIcon5.png";
 import icon3 from "@/assets/icons/user/petIcon.png";
 import icon4 from "@/assets/icons/user/petIcon.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const UserProfileInfo = () => {
   return (
     <div className="lg:space-y-10 space-y-5">
       {/* Contact Button */}
-      <Button className="w-full py-6 bg-primary-orange group hover:bg-primary-orange/75">
-        Contact James
-        <MessageCircleMore className="ml-2 group-hover:animate-ping" />
-      </Button>
+      <Link href={"/message"}>
+        <Button className="w-full py-6 bg-primary-orange group hover:bg-primary-orange/75">
+          Contact James
+          <MessageCircleMore className="ml-2 group-hover:animate-ping" />
+        </Button>
+      </Link>
 
       {/* about the sitter */}
       <div className="lg:space-y-6 space-y-3">

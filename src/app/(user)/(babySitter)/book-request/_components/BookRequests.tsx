@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/dialog";
 import { Textarea } from "@/components/ui/textarea";
 import BookRequestCard from "@/components/shared/BabySitter/BookRequestCard";
+import Link from "next/link";
 
 const BookRequests = () => {
   return (
@@ -36,50 +37,56 @@ const BookRequests = () => {
             <BookRequestCard data={babySitter}>
               <div className="flex gap-x-4 gap-y-2 flex-col md:flex-row ">
                 {/* message button */}
-                <Button className="w-full bg-primary-orange hover:bg-primary-gray group">
-                  <MessageCircleMore
-                    size={20}
-                    className="mr-2 group-hover:animate-ping"
-                  />
-                  Message
-                </Button>
+                <div className="flex-1">
+                  <Link href={"/message"}>
+                    <Button className="w-full bg-primary-orange hover:bg-primary-gray group">
+                      <MessageCircleMore
+                        size={20}
+                        className="mr-2 group-hover:animate-ping"
+                      />
+                      Message
+                    </Button>
+                  </Link>
+                </div>
 
                 {/* Reject button */}
 
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button className="w-full bg-primary-orange hover:bg-primary-gray group">
-                      Reject
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="sm:max-w-[425px]">
-                    <DialogHeader>
-                      <DialogDescription className="text-2xl text-center text-primary-blue font-medium mt-5">
-                        Why do you want to reject this appointment?
-                      </DialogDescription>
-                    </DialogHeader>
-                    <div className="grid gap-4 py-4">
-                      <div>
-                        <Textarea
-                          className=""
-                          rows={8}
-                          placeholder="write here reject issue"
-                        ></Textarea>
-                      </div>
-                    </div>
-                    <DialogFooter>
-                      <Button
-                        type="submit"
-                        className="w-full bg-primary-orange"
-                      >
-                        Submit
+                <div className="flex-1">
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button className="w-full bg-primary-orange hover:bg-primary-gray group">
+                        Reject
                       </Button>
-                    </DialogFooter>
-                  </DialogContent>
-                </Dialog>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[425px]">
+                      <DialogHeader>
+                        <DialogDescription className="text-2xl text-center text-primary-blue font-medium mt-5">
+                          Why do you want to reject this appointment?
+                        </DialogDescription>
+                      </DialogHeader>
+                      <div className="grid gap-4 py-4">
+                        <div>
+                          <Textarea
+                            className=""
+                            rows={8}
+                            placeholder="write here reject issue"
+                          ></Textarea>
+                        </div>
+                      </div>
+                      <DialogFooter>
+                        <Button
+                          type="submit"
+                          className="w-full bg-primary-orange"
+                        >
+                          Submit
+                        </Button>
+                      </DialogFooter>
+                    </DialogContent>
+                  </Dialog>
+                </div>
 
                 {/* Approved button */}
-                <Button className="w-full bg-primary-orange hover:bg-primary-gray group">
+                <Button className="w-full bg-primary-orange hover:bg-primary-gray group flex-1">
                   Approved
                 </Button>
               </div>

@@ -1,7 +1,7 @@
 import PlanContainer from "./_components/PlanContainer";
 
 export const metadata = {
-  title: "Your  Plan",
+  title: "Subscription  Plan",
   description: "This is Plan Page",
 };
 

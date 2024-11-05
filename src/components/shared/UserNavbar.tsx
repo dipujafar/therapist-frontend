@@ -114,7 +114,7 @@ const UserNavbar = ({ className }: { className?: string }) => {
               )}
             />
           </Link>
-          <Link href={"/"}>
+          <Link href={"/message"}>
             <MessageCircleMore />
           </Link>
           <Link href={"/family-user/profile-details"}>
@@ -202,7 +202,7 @@ const UserNavbar = ({ className }: { className?: string }) => {
                       )}
                     />
                   </Link>
-                  <Link href={"/"}>
+                  <Link href={"/message"}>
                     <MessageCircleMore />
                   </Link>
                   <Link href={"/family-user/profile-details"}>
