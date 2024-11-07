@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import icon1 from "@/assets/icons/sitter/sitterPageIcon4.png";
 import icon2 from "@/assets/icons/sitter/sitterPageIcon5.png";
@@ -9,14 +10,14 @@ import Link from "next/link";
 
 const ProfileInfo = () => {
   let role = "familyUser";
+  console.log(role);
   return (
     <div className="lg:space-y-10 space-y-5">
       {/* Contact Button */}
       {role === "familyUser" && (
-        <Link href={"/message"}>
+        <Link href={"/book-babysitter-request"}>
           <Button className="w-full py-6 bg-primary-orange group hover:bg-primary-orange/75">
             Contact Dyneja{" "}
-            <MessageCircleMore className="ml-2 group-hover:animate-ping" />
           </Button>
         </Link>
       )}

@@ -71,7 +71,14 @@ const UserDashboardSidebar = () => {
   const subpath = pathname?.split("/")[2];
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
-  let role = "familyUser";
+  const [role, setRole] = useState<string | null>(null);
+
+  useEffect(() => {
+    const storedRole = localStorage.getItem("role");
+    if (storedRole) {
+      setRole(storedRole);
+    }
+  }, [role]);
 
   // Toggle the sidebar visibility
   const toggleSidebar = () => {

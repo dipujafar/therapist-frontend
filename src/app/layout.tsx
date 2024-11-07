@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 import Footer from "@/components/shared/Footer";
 import NextTopLoader from "nextjs-toploader";
 import "react-pagination-bar/dist/index.css";
+import { Toaster } from "sonner";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -44,6 +45,7 @@ export default function RootLayout({
           zIndex={1600}
           showAtBottom={false}
         />
+        <Toaster />
 
         <div className="min-h-[calc(100vh-250px)] ">{children}</div>
         <footer>

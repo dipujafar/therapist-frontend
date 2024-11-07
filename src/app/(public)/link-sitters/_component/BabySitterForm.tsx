@@ -19,6 +19,7 @@ import { Controller, useForm } from "react-hook-form";
 import CountryStateCitySelector from "@/components/ui/CountryStateCitySelector";
 import { Textarea } from "@/components/ui/textarea";
 import { useRouter } from "next/navigation";
+import AvailabilitySelector from "@/components/ui/availability-selector";
 
 const BabySitterForm = () => {
   const [fileName, setFileName] = useState<string | null>(null);
@@ -48,6 +49,7 @@ const BabySitterForm = () => {
   const { register, handleSubmit, control, reset, setValue } = useForm();
 
   const onSubmit = (data: any) => {
+    console.log(data);
     router.push("/confirm-link-sitter");
   };
 
@@ -55,6 +57,16 @@ const BabySitterForm = () => {
     <div className="max-w-5xl mx-auto">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="space-y-5">
+          <div className="space-y-3  ">
+            <Label className="text-xl font-semibold text-primary-blue ">
+              Select Availability
+            </Label>
+            <AvailabilitySelector
+              control={control}
+              name="availability"
+              defaultValue={{ day: "Monday", timeSlots: [] }}
+            />
+          </div>
           <h1 className="text-xl font-semibold text-primary-blue ">
             Personal Information
           </h1>

@@ -16,6 +16,7 @@ import ForgetPasswordModal from "./ForgetPasswordModal";
 import { Eye, EyeOff } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 const LoginModal = ({
   open,
@@ -35,8 +36,17 @@ const LoginModal = ({
 
   const onSubmit = (data: any) => {
     // Handle form submission (e.g., send data to API)
-    console.log(data);
-    router.push("/all-babysitters");
+    if (data?.email === "user@gmail.com") {
+      localStorage.setItem("role", "familyUser");
+      router.push("/all-babysitters");
+      return;
+    }
+    if (data?.email === "babySitter@gmail.com") {
+      localStorage.setItem("role", "babySitter");
+      router.push("/all-babysitters");
+      return;
+    }
+    toast.error("You are not valid user");
   };
 
   return (

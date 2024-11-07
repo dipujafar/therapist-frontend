@@ -3,11 +3,18 @@ import sitterProfile from "@/assets/Images/singleSitter/sitterProfileImage.png";
 import { Rating } from "@/components/ui/rating";
 import { Heart } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const SitterBanner = () => {
   const [fill, setFill] = useState(false);
-  let role = "familyUser";
+  const [role, setRole] = useState<string | null>(null);
+
+  useEffect(() => {
+    const storedRole = localStorage.getItem("role");
+    if (storedRole) {
+      setRole(storedRole);
+    }
+  }, [role]);
   return (
     <div className="flex flex-col md:flex-row items-center justify-center lg:gap-x-20 gap-x-10 gap-y-5 py-8 bg-gradient-to-r from-[#038C7F] to-[#558399] px-5 relative">
       {/* profile Image */}

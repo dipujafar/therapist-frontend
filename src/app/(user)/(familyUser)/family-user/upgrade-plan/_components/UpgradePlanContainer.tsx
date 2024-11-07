@@ -55,22 +55,20 @@ const UpgradePlanContainer = () => {
         {/* plan 2 */}
         <div className="max-w-md h-[510px]">
           <InfoDynamicCard
-            className="bg-[#976FBF] text-primary-white px-5 border-b-[6px] border-b-[#DFD2EB] border-r-[6px] border-r-[#DFD2EB] h-full flex flex-col justify-between"
+            className="bg-[#976FBF] text-primary-white px-5 border-b-[6px] border-b-[#DFD2EB] border-r-[6px] border-r-[#DFD2EB] h-full flex flex-col  gap-y-5"
             title="Full Circle Connection"
             subTitle="$150/Month + Linkers’ hourly rate Unlimited sits each month"
           >
-            <div className="space-y-3">
-              <p>
-                For families requiring comprehensive, around-the-clock support.
-                This tier is tailored for busy families who rely on sitting
-                services regularly, whether for work, school, or other
-                commitments. It includes unlimited access, priority. It's
-                especially useful for families with unpredictable or demanding
-                schedules.
-              </p>
-            </div>
+            <p>
+              For families requiring comprehensive, around-the-clock support.
+              This tier is tailored for busy families who rely on sitting
+              services regularly, whether for work, school, or other
+              commitments. It includes unlimited access, priority. It's
+              especially useful for families with unpredictable or demanding
+              schedules.
+            </p>
 
-            <div className="w-[80%] mx-auto mt-auto">
+            <div className="w-[80%] mx-auto  mt-5">
               <Button className="w-full bg-primary-white text-primary-black hover:bg-primary-gray hover:text-primary-white font-semibold">
                 Choose Plan
               </Button>

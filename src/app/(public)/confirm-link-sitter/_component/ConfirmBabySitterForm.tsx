@@ -30,7 +30,7 @@ const ConfirmBabySitterForm = () => {
     event.target.value = "";
   };
 
-  console.log(resumeFile);
+
 
   return (
     <div className="max-w-5xl mx-auto">

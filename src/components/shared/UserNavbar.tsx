@@ -18,6 +18,7 @@ import {
 } from "../ui/sheet";
 import { cn } from "@/lib/utils";
 import userProfile from "@/assets/Images/family-user/userProfileDummyImage.png";
+import { useEffect, useState } from "react";
 
 const navLinks = [
   {
@@ -37,7 +38,14 @@ const navLinks = [
 const UserNavbar = ({ className }: { className?: string }) => {
   const pathname = usePathname();
   const currentPathName = pathname?.split("/")[1];
-  let role = "familyUser";
+  const [role, setRole] = useState<string | null>(null);
+
+  useEffect(() => {
+    const storedRole = localStorage.getItem("role");
+    if (storedRole) {
+      setRole(storedRole);
+    }
+  }, [role]);
 
   // Function to handle category selection
 
