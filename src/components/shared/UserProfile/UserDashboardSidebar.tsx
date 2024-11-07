@@ -2,16 +2,12 @@
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import {
-  Heart,
   History,
-  LayoutDashboard,
   LogOut,
   Menu,
   X,
   Settings,
-  ShoppingCart,
   UserRoundPen,
-  ImageIcon,
   Camera,
   LibraryBig,
   StarHalf,
@@ -53,7 +49,7 @@ const SITTER_SIDEBAR_LINKS = [
     key: "others-information",
     label: "Others Information",
     icon: <LibraryBig size={25} />,
-    href: "/baby-sitter/others-information",
+    href: "/baby-sitter/other-information",
   },
   {
     key: "review-rating",
@@ -74,10 +70,8 @@ const UserDashboardSidebar = () => {
   const path = pathname?.split("/")[2].split("-")[1];
   const subpath = pathname?.split("/")[2];
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
-  const router = useRouter();
-  const [fileName, setFileName] = useState<string | null>(null);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
-  let role = "babySitter";
+  let role = "familyUser";
 
   // Toggle the sidebar visibility
   const toggleSidebar = () => {
@@ -102,26 +96,6 @@ const UserDashboardSidebar = () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, [isSidebarVisible]);
-
-  // handle profile change
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const input = event.target;
-    const file = input.files?.[0];
-
-    console.log(input.files);
-
-    if (file) {
-      const url = URL.createObjectURL(file);
-      setImageUrl(url);
-      setFileName(file.name);
-    } else {
-      setImageUrl(null); // Clear the image URL if no file was selected
-      setFileName(null);
-    }
-
-    // Reset the input value to allow selecting the same file again
-    input.value = "";
-  };
 
   return (
     <div>
@@ -157,42 +131,6 @@ const UserDashboardSidebar = () => {
                 height={700}
                 className="size-24 rounded-full mx-auto shadow-md"
               ></Image>
-              <div className="absolute bottom-1 right-20 z-[9999]  flex flex-col items-center gap-4 w-fit">
-                <Button
-                  variant="outline"
-                  type="button"
-                  className="w-fit h-fit flex flex-col items-center justify-center text-gray-600 hover:text-gray-800 border-none shadow-none bg-primary-white p-1 rounded-full"
-                >
-                  <input
-                    type="file"
-                    id="fileInput"
-                    className="hidden"
-                    onChange={handleFileChange}
-                    accept="image/*"
-                  />
-                  <label
-                    htmlFor="fileInput"
-                    className="cursor-pointer flex flex-col items-center"
-                  >
-                    <Camera
-                      color="#555656"
-                      size={20}
-                      className=" border-none"
-                    />
-                  </label>
-                </Button>
-              </div>
-              {fileName && imageUrl && (
-                <div
-                  className="cursor-pointer absolute top-0 left-20 bg-primary-blue/70 rounded-md"
-                  onClick={() => {
-                    setFileName(null);
-                    setImageUrl(null);
-                  }}
-                >
-                  <X color="red" size={20} />
-                </div>
-              )}
             </div>
 
             {/* user info */}
@@ -219,7 +157,7 @@ const UserDashboardSidebar = () => {
                     )}
                   >
                     {link.icon}
-                    <span>{link.label}</span>
+                    <span className="truncate">{link.label}</span>
                   </Link>
                 ))
               : SITTER_SIDEBAR_LINKS?.map((link) => (
@@ -237,7 +175,7 @@ const UserDashboardSidebar = () => {
                     )}
                   >
                     {link.icon}
-                    <span>{link.label}</span>
+                    <span className="truncate">{link.label}</span>
                   </Link>
                 ))}
 

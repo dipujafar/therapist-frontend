@@ -18,7 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
-import { Trash, Trash2, TrashIcon, UploadIcon } from "lucide-react";
+import { Trash2, UploadIcon } from "lucide-react";
 import { useState } from "react";
 
 const ConfirmBabySitterForm = () => {

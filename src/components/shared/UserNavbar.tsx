@@ -37,7 +37,7 @@ const navLinks = [
 const UserNavbar = ({ className }: { className?: string }) => {
   const pathname = usePathname();
   const currentPathName = pathname?.split("/")[1];
-  let role = "babySitter";
+  let role = "familyUser";
 
   // Function to handle category selection
 
@@ -113,7 +113,13 @@ const UserNavbar = ({ className }: { className?: string }) => {
           <Link href={"/message"}>
             <MessageCircleMore />
           </Link>
-          <Link href={"/family-user/profile-details"}>
+          <Link
+            href={
+              role === "familyUser"
+                ? "/family-user/profile-details"
+                : "/baby-sitter/profile-details"
+            }
+          >
             <Image src={userProfile} alt="user profile"></Image>
           </Link>
         </div>

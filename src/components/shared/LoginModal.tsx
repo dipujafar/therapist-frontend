@@ -72,43 +72,45 @@ const LoginModal = ({
                   })}
                 />
                 {errors.email && (
-                  <p className="text-red-500 text-sm mt-1">
+                  <p className="text-red-500 text-sm">
                     {errors.email.message as string}
                   </p>
                 )}
               </div>
 
               {/* `---- input Password ---- */}
-              <div className="relative">
-                <div className="grid w-full items-center gap-2">
-                  <Label className="text-lg font-medium text-primary-black/80">
-                    Password:
-                  </Label>
-                  <Input
-                    type={showPassword ? "text" : "password"}
-                    id="password"
-                    placeholder="********"
-                    className="w-full py-5 bg-primary-light-gray"
-                    {...register("password", {
-                      required: "Password is required",
-                    })}
-                  />
-                  {errors.password && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors.password.message as string}
-                    </p>
-                  )}
+              <div>
+                <div className="relative">
+                  <div className="grid w-full items-center gap-2">
+                    <Label className="text-lg font-medium text-primary-black/80">
+                      Password:
+                    </Label>
+                    <Input
+                      type={showPassword ? "text" : "password"}
+                      id="password"
+                      placeholder="********"
+                      className="w-full py-5 bg-primary-light-gray"
+                      {...register("password", {
+                        required: "Password is required",
+                      })}
+                    />
+                  </div>
+                  <div
+                    className="absolute right-3 top-1/2 translate-y-1   cursor-pointer"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? (
+                      <Eye color="#60778C" />
+                    ) : (
+                      <EyeOff color="#60778C" />
+                    )}
+                  </div>
                 </div>
-                <div
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? (
-                    <Eye color="#60778C" />
-                  ) : (
-                    <EyeOff color="#60778C" />
-                  )}
-                </div>
+                {errors.password && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.password.message as string}
+                  </p>
+                )}
               </div>
 
               {/* Remember me and Forgot Password */}

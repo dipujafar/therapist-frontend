@@ -8,7 +8,7 @@ import { MessageCircleMore } from "lucide-react";
 import Link from "next/link";
 
 const ProfileInfo = () => {
-  let role = "babysitter";
+  let role = "familyUser";
   return (
     <div className="lg:space-y-10 space-y-5">
       {/* Contact Button */}

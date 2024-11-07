@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const SitterBanner = () => {
   const [fill, setFill] = useState(false);
-  let role = "babysitter";
+  let role = "familyUser";
   return (
     <div className="flex flex-col md:flex-row items-center justify-center lg:gap-x-20 gap-x-10 gap-y-5 py-8 bg-gradient-to-r from-[#038C7F] to-[#558399] px-5 relative">
       {/* profile Image */}

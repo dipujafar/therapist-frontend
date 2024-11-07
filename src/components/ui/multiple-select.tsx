@@ -14,6 +14,7 @@ interface MultipleSelectProps {
   control?: Control<FieldValues>;
   options: Option[];
   placeholder?: string;
+  defaultValues?: string[];
 }
 
 export default function MultipleSelect({
@@ -21,6 +22,7 @@ export default function MultipleSelect({
   control,
   options,
   placeholder = "Select options...",
+  defaultValues = [],
 }: MultipleSelectProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<Option[]>([]);
@@ -124,8 +126,14 @@ export default function MultipleSelect({
                   />
                 </span>
               ))
+            ) : defaultValues?.length > 0 ? (
+              <span className="text-[#5C5C5C]">
+                <p className="text-primary-blue">
+                  {defaultValues?.map((i) => i).join(", ")}
+                </p>
+              </span>
             ) : (
-              <span className="text-[#5C5C5C]">{placeholder}</span>
+              <span className="text-[#5C5C5C]"> {placeholder}</span>
             )}
             <ChevronsUpDown className="ml-auto h-4 w-4 text-gray-400 absolute top-1/2 right-2 -translate-y-1/2" />
           </div>
