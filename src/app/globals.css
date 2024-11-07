@@ -93,7 +93,7 @@ body {
     @apply text-3xl font-semibold;
   }
   .section-header {
-    @apply md:text-5xl text-3xl font-semibold text-primary-orange text-center;
+    @apply md:text-5xl text-2xl font-semibold text-primary-orange text-center;
   }
 }
 

@@ -52,7 +52,7 @@ const UserNavbar = ({ className }: { className?: string }) => {
               alt="logo"
               width={1200}
               height={1200}
-              className="h-10 lg:h-auto w-auto brightness-110 "
+              className="h-10 lg:h-28 w-auto brightness-110 "
             />
           </Link>
         </div>

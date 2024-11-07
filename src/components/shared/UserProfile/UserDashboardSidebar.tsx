@@ -241,13 +241,15 @@ const UserDashboardSidebar = () => {
                   </Link>
                 ))}
 
-            <button
-              type="button"
-              className="flex items-center gap-x-3 px-5 py-4 text-lg rounded text-primary-gray hover:bg-primary-gray hover:text-primary-white  transition-all duration-300 ease-in-out w-full"
-            >
-              <LogOut size={25} />
-              <span>Logout</span>
-            </button>
+            <Link href="/">
+              <button
+                type="button"
+                className="flex items-center gap-x-3 px-5 py-4 text-lg rounded text-primary-gray hover:bg-primary-gray hover:text-primary-white  transition-all duration-300 ease-in-out w-full"
+              >
+                <LogOut size={25} />
+                <span>Logout</span>
+              </button>
+            </Link>
           </div>
         </div>
       </div>

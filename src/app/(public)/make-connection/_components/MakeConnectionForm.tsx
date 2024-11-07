@@ -5,21 +5,22 @@ import dummyProfile from "@/assets/images/make-connect/dummyProfile.png";
 import Image from "next/image";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Ban, CalendarIcon, CircleX, ImageIcon, Info, X } from "lucide-react";
+import { ImageIcon, Info, Plus, X } from "lucide-react";
 
 import { useState } from "react";
-import { DateTimePicker } from "@/components/ui/datepicker";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { memberShipPlans } from "@/lib/memberShipPlan";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { cn } from "@/lib/utils";
-import { format } from "date-fns";
-import { Calendar } from "@/components/ui/calendar";
+import CountryStateCitySelector from "@/components/ui/CountryStateCitySelector";
+import { Controller, useForm } from "react-hook-form";
+import { PhoneInput } from "@/components/ui/PhoneInput";
+import { DatePicker } from "@/components/ui/date-picker";
+
+type Client = {
+  name: string;
+  birthday: Date | null;
+  info: string;
+};
 
 const MakeConnectionForm = () => {
   const [fileName, setFileName] = useState<string | null>(null);
@@ -28,6 +29,9 @@ const MakeConnectionForm = () => {
     undefined
   );
 
+  const { register, handleSubmit, control, reset, setValue } = useForm();
+
+  // input profile image
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const input = event.target;
     const file = input.files?.[0];
@@ -46,12 +50,33 @@ const MakeConnectionForm = () => {
     // Reset the input value to allow selecting the same file again
     input.value = "";
   };
+
+  // dynamic add input field for clients
+  const [clients, setClients] = useState<Client[]>([
+    { name: "", birthday: null, info: "" },
+  ]);
+
+  const addClient = () => {
+    setClients([...clients, { name: "", birthday: null, info: "" }]);
+  };
+
+  const removeClient = (index: number) => {
+    setClients(clients.filter((_, i) => i !== index));
+  };
+
+  const updateClient = (index: number, field: keyof Client, value: any) => {
+    const updatedClients = [...clients];
+    updatedClients[index][field] = value;
+    setClients(updatedClients);
+    console.log(updatedClients);
+  };
+
   return (
     <div className="max-w-5xl mx-auto">
       <form className="space-y-16">
         {/*------------------- personal info ------------------ */}
         <div className="flex flex-col-reverse justify-center items-center md:items-start md:flex-row gap-x-8 gap-y-6">
-          <div className="md:flex-1 w-full space-y-6">
+          <div className="md:flex-1 w-full space-y-8">
             {/* `---- input E-mail ---- */}
             <div className="grid w-full  items-center gap-1.5">
               <Label className="font-semibold text-lg text-primary-black/80">
@@ -65,13 +90,13 @@ const MakeConnectionForm = () => {
               />
             </div>
 
-            {/* ---- Primary Parent & Secondary Parent ---- */}
+            {/* ---- Primary Parent & Secondary Caregiver ---- */}
 
             <div className="flex flex-col md:flex-row gap-x-7 gap-y-5">
-              {/*  --------- Primary Parent --------*/}
+              {/*  --------- Primary Caregiver --------*/}
               <div className="space-y-3 flex-1">
                 <h1 className="text-xl font-semibold text-primary-blue ">
-                  Primary Parent
+                  Primary Caregiver
                 </h1>
                 {/* `---- input  First Name ---- */}
                 <div className="grid w-full  items-center gap-1.5">
@@ -81,7 +106,7 @@ const MakeConnectionForm = () => {
                   <Input
                     type="text"
                     id="primaryParentFirstName"
-                    placeholder="enter primary parent first name"
+                    placeholder="enter caregiver 1 first name"
                     className="w-full py-5 bg-primary-light-gray "
                   />
                 </div>
@@ -94,29 +119,38 @@ const MakeConnectionForm = () => {
                   <Input
                     type="text"
                     id="primaryParentLastName"
-                    placeholder="enter primary parent last name"
+                    placeholder="enter caregiver 1 last name"
                     className="w-full py-5 bg-primary-light-gray "
                   />
                 </div>
 
-                {/* `---- input Mobile Number ---- */}
-                <div className="grid w-full  items-center gap-1.5">
+                {/* user phone number */}
+                <div className="mb-2 space-y-1">
                   <Label className="font-semibold text-lg text-primary-black/80">
                     Mobile Number
                   </Label>
-                  <Input
-                    type="text"
-                    id="primaryParentMobileNumber"
-                    placeholder="enter  mobile number"
-                    className="w-full py-5 bg-primary-light-gray "
+                  <Controller
+                    // @ts-ignore
+                    name="phoneNumber"
+                    // rules={{ required: "Phone number is required" }}
+                    control={control}
+                    render={({ field }) => (
+                      <PhoneInput
+                        // @ts-ignore
+                        value={field.value}
+                        onChange={field.onChange}
+                        international
+                        defaultCountry="US"
+                      />
+                    )}
                   />
                 </div>
               </div>
 
-              {/*  --------- Secondary Parent --------*/}
+              {/*  --------- Secondary Caregiver --------*/}
               <div className="space-y-3 flex-1">
                 <h1 className="text-xl font-semibold text-primary-blue ">
-                  Secondary Parent
+                  Secondary Caregiver
                 </h1>
                 {/* `---- input  First Name ---- */}
                 <div className="grid w-full  items-center gap-1.5">
@@ -126,7 +160,7 @@ const MakeConnectionForm = () => {
                   <Input
                     type="text"
                     id="secondaryParentFirstName"
-                    placeholder="enter secondary parent first name"
+                    placeholder="enter caregiver 2 first name"
                     className="w-full py-5 bg-primary-light-gray "
                   />
                 </div>
@@ -139,21 +173,30 @@ const MakeConnectionForm = () => {
                   <Input
                     type="text"
                     id="secondaryParentLastName"
-                    placeholder="enter secondary parent last name"
+                    placeholder="enter caregiver 2 last name"
                     className="w-full py-5 bg-primary-light-gray "
                   />
                 </div>
 
-                {/* `---- input Mobile Number ---- */}
-                <div className="grid w-full  items-center gap-1.5">
+                {/* user phone number */}
+                <div className="mb-2 space-y-1">
                   <Label className="font-semibold text-lg text-primary-black/80">
                     Mobile Number
                   </Label>
-                  <Input
-                    type="text"
-                    id="secondaryParentMobileNumber"
-                    placeholder="enter mobile number"
-                    className="w-full py-5 bg-primary-light-gray "
+                  <Controller
+                    // @ts-ignore
+                    name="phoneNumber"
+                    // rules={{ required: "Phone number is required" }}
+                    control={control}
+                    render={({ field }) => (
+                      <PhoneInput
+                        // @ts-ignore
+                        value={field.value}
+                        onChange={field.onChange}
+                        international
+                        defaultCountry="US"
+                      />
+                    )}
                   />
                 </div>
               </div>
@@ -207,6 +250,7 @@ const MakeConnectionForm = () => {
                 </div>
               )}
             </div>
+            <h4 className="mt-3 font-medium">Upload Profile Picture</h4>
           </div>
         </div>
 
@@ -235,11 +279,22 @@ const MakeConnectionForm = () => {
               <Label className="font-semibold text-lg text-primary-black/80">
                 Person’s Phone Number
               </Label>
-              <Input
-                type="text"
-                id="emergencyPersonPhoneNumber"
-                placeholder="enter phone number"
-                className="w-full py-5 bg-primary-light-gray "
+              {/* user phone number */}
+
+              <Controller
+                // @ts-ignore
+                name="phoneNumber"
+                // rules={{ required: "Phone number is required" }}
+                control={control}
+                render={({ field }) => (
+                  <PhoneInput
+                    // @ts-ignore
+                    value={field.value}
+                    onChange={field.onChange}
+                    international
+                    defaultCountry="US"
+                  />
+                )}
               />
             </div>
           </div>
@@ -256,15 +311,21 @@ const MakeConnectionForm = () => {
             <Label className="font-semibold text-lg text-primary-black/80">
               Address
             </Label>
-            <Input
-              type="text"
-              id="address"
-              placeholder="enter service address"
-              className="w-full py-5 bg-primary-light-gray "
+            {/*---- input   country ---- */}
+            <CountryStateCitySelector
+              control={control}
+              userAddress={{
+                country: "",
+                state: "",
+                city: "",
+                area: "",
+                house: "",
+              }}
+              register={register}
+              setValue={setValue}
             />
           </div>
 
-          {/*---- input   country ---- */}
           <div></div>
         </div>
 
@@ -329,81 +390,84 @@ const MakeConnectionForm = () => {
           </div>
         </div>
 
-        {/* Child Information */}
+        {/* Client Information */}
         <div className="space-y-5">
-          {/* Child Information Header */}
+          {/* Client Information Header */}
           <div className="flex justify-between flex-wrap gap-2">
             <h1 className="text-2xl font-semibold text-primary-blue">
-              Child's Information
+              Client's Profile
             </h1>
-            <Button type="button" className="bg-primary-orange ">
-              New Child
+            <Button
+              type="button"
+              className="bg-primary-orange group"
+              onClick={addClient}
+            >
+              <Plus size={20} className="mr-1 group-hover:animate-bounce" />
+              Add another client
             </Button>
           </div>
 
-          {/* input child name birthday */}
-          <div className="flex flex-col md:flex-row gap-x-7 gap-y-5">
-            {/* `---- input  Child’s Name ---- */}
-            <div className="grid w-full  items-center gap-1.5">
-              <Label className="font-semibold text-lg text-primary-black/80">
-                Child’s Name
-              </Label>
-              <Input
-                type="text"
-                id="childName"
-                placeholder="Child’s name"
-                className="w-full py-5 bg-primary-light-gray "
-              />
-            </div>
+          {clients.map((client, index) => (
+            <div key={index} className="relative space-y-5 ">
+              {/* Cancel Icon (shows only if more than one client) */}
+              {clients.length > 1 && (
+                <button
+                  type="button"
+                  onClick={() => removeClient(index)}
+                  className="absolute top-2 right-2 text-primary-red hover:text-red-600"
+                  aria-label="Remove client"
+                >
+                  <X size={20} color="red" />
+                </button>
+              )}
 
-            {/* `---- input  birthday ---- */}
-            <div className="grid w-full  items-center gap-1.5">
-              <Label className="font-semibold text-lg text-primary-black/80">
-                Child’s Birthday
-              </Label>
-              <div className=" space-y-2 w-full">
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant={"outline"}
-                      className={cn(
-                        " justify-start text-left font-normal w-full bg-primary-light-gray",
-                        !childBirthday && "text-muted-foreground"
-                      )}
-                    >
-                      <CalendarIcon className="mr-2 h-4 w-4" />
-                      {childBirthday ? (
-                        format(childBirthday, "PPP")
-                      ) : (
-                        <span>Pick a date</span>
-                      )}
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0">
-                    <Calendar
-                      mode="single"
-                      selected={childBirthday}
-                      onSelect={setChildBirthday}
-                      initialFocus
-                    />
-                  </PopoverContent>
-                </Popover>
+              {/* Client Name and Birthday */}
+              <div className="flex flex-col md:flex-row gap-x-7 gap-y-5">
+                {/* Input Client’s Name */}
+                <div className="grid w-full items-center gap-1.5">
+                  <Label className="font-semibold text-lg text-primary-black/80">
+                    {index > 0 && index + 1 + "."} Client's Name
+                  </Label>
+                  <Input
+                    type="text"
+                    placeholder="Client’s name"
+                    value={client.name}
+                    onChange={(e) =>
+                      updateClient(index, "name", e.target.value)
+                    }
+                    className="w-full py-5 bg-primary-light-gray"
+                  />
+                </div>
+
+                {/* Input Client's Birthday */}
+                <div className="grid w-full items-center gap-1.5">
+                  <Label className="font-semibold text-lg text-primary-black/80">
+                    Client's Birthday
+                  </Label>
+                  <DatePicker
+                    name="dob"
+                    control={control}
+                    // label="Date of Birth"
+                    onChange={(date) => updateClient(index, "birthday", date)}
+                  />
+                </div>
+              </div>
+
+              {/* Input Client’s Info */}
+              <div className="grid w-full items-center gap-1.5">
+                <Label className="font-semibold text-lg text-primary-black/80">
+                  Client's Information
+                </Label>
+                <Textarea
+                  rows={3}
+                  placeholder="Interests, Allergies or Medical Conditions"
+                  value={client.info}
+                  onChange={(e) => updateClient(index, "info", e.target.value)}
+                  className="w-full bg-primary-light-gray"
+                />
               </div>
             </div>
-          </div>
-
-          {/* `---- input  Child’s Info ---- */}
-          <div className="grid w-full  items-center gap-1.5">
-            <Label className="font-semibold text-lg text-primary-black/80">
-              Child’s Info
-            </Label>
-            <Textarea
-              rows={3}
-              id="childInfo"
-              placeholder="Interests, Allergies or Medical Conditions"
-              className="w-full  bg-primary-light-gray "
-            />
-          </div>
+          ))}
         </div>
 
         {/* ---- Password ---- */}

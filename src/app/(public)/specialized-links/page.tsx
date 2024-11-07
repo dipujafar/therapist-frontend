@@ -18,7 +18,7 @@ const SpecializedLinksPage = () => {
       ></TopBanner>
       <HowToConnect></HowToConnect>
       <OurProcess></OurProcess>
-      <Link href={"#"} className="flex justify-center mt-32">
+      <Link href={"/make-connection"} className="flex justify-center mt-32">
         <Button className="bg-primary-orange py-6 px-8">
           Make A Connection
         </Button>

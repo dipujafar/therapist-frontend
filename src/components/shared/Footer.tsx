@@ -53,13 +53,13 @@ const Footer = () => {
             </h3>
             <ul className="text-primary-white space-y-5">
               <li>
-                <Link href="/#">Pricing</Link>
+                <Link href="/membership-pricing">Pricing</Link>
               </li>
               <li>
                 <Link href="/about-us">About Us</Link>
               </li>
               <li>
-                <Link href="/contact-us">Contact Us</Link>
+                <Link href="/connect-us">Contact Us</Link>
               </li>
               <li>
                 <Link href="/faqs">FAQs</Link>

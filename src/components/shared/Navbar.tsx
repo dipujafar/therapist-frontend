@@ -22,6 +22,8 @@ import {
 
 import Container from "./Container";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
+import LoginModal from "./LoginModal";
 
 const about = [
   {
@@ -56,7 +58,7 @@ const navLinks = [
 const Navbar = ({ className }: { className?: string }) => {
   const pathname = usePathname();
   const currentPathName = pathname?.split("/")[1];
-  console.log(currentPathName);
+  const [openLogin, setOpenLogin] = useState(false);
 
   return (
     <div className={cn(className)}>
@@ -70,7 +72,7 @@ const Navbar = ({ className }: { className?: string }) => {
                 alt="logo"
                 width={1200}
                 height={1200}
-                className="h-16 lg:h-auto w-auto brightness-110 "
+                className="h-16 lg:h-28 w-auto brightness-110 "
               />
             </Link>
           </div>
@@ -79,7 +81,7 @@ const Navbar = ({ className }: { className?: string }) => {
           <div className="flex flex-1 items-center justify-center gap-x-10">
             {/* navLinks */}
             <nav>
-              <div className=" hidden lg:flex gap-x-8">
+              <div className=" hidden lg:flex items-center gap-x-8">
                 {/*------------------------ about drop down navLinks ---------------------------------- */}
                 <Menubar className="w-fit bg-transparent border-none shadow-none text-primary-white">
                   <MenubarMenu>
@@ -118,13 +120,22 @@ const Navbar = ({ className }: { className?: string }) => {
                           : ""
                       )}
                     >
-                      <Link href={`/${item.value}`}>{item.label}</Link>
+                      <Link href={`/${item.value}`} className="truncate">
+                        {item.label}
+                      </Link>
                     </li>
                   ))}
                 </ul>
+                <p
+                  onClick={() => setOpenLogin(true)}
+                  className="text-primary-white font-medium text-lg cursor-pointer"
+                >
+                  Login
+                </p>
               </div>
             </nav>
           </div>
+          {/* login button */}
 
           {/* nav button */}
           <div className="hidden items-center gap-3 lg:flex">
@@ -239,6 +250,7 @@ const Navbar = ({ className }: { className?: string }) => {
           </div>
         </nav>
       </Container>
+      <LoginModal open={openLogin} setOpen={setOpenLogin}></LoginModal>
     </div>
   );
 };

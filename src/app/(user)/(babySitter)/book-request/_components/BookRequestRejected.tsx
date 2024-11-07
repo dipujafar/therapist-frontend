@@ -22,7 +22,12 @@ const BookRequestRejected = () => {
             key={index}
             className="lg:space-y-10 space-y-5"
           >
-            <BookRequestCard data={babySitter}></BookRequestCard>
+            <BookRequestCard data={babySitter}>
+              <hr />
+              <p className="text-lg text-primary-gray mt-2">
+                Reason: Last time this clint did not behave so well.
+              </p>
+            </BookRequestCard>
 
             <hr />
           </motion.div>
